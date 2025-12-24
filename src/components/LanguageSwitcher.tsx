@@ -2,7 +2,8 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { cn } from '@/lib/utils';
 
 export function LanguageSwitcher() {
-  const { language, setLanguage } = useLanguage();
+  // const { language, setLanguage } = useLanguage();
+  const [language, setLanguage] = useState<Language>('my');
 
   return (
     <div className="flex items-center gap-1 rounded-full border border-border/50 p-1 bg-secondary/50">
