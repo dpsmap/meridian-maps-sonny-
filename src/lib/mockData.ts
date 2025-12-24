@@ -84,7 +84,7 @@ export const products: Product[] = [
     <p>Ideal for urban planners, real estate professionals, delivery services, and anyone navigating Yangon with precision.</p>`,
     short_description: "Complete township-level mapping of Yangon's 33 administrative divisions with verified data and precision cartography.",
     sku: "YCDC-TMB-001",
-    price: "35000",
+    price: "27000",
     regular_price: "55000",
     sale_price: "45000",
     on_sale: true,

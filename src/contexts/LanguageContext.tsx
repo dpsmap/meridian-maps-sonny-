@@ -24,7 +24,7 @@ const translations: Record<Language, Record<string, string>> = {
     'header.menu': 'Menu',
     
     // Hero Section
-    'hero.badge': 'Precision Cartography Since 2015',
+    'hero.badge': 'Precision Cartography Since 1995',
     'hero.title': 'Get Yangon and Myanmar Maps at a Special Price',
     'hero.titleHighlight': '(Almost Half Price) (Only for 7 weeks)',
     'hero.subtitle': 'Discover our collection of high-quality Yangon maps, custom map prints, and the definitive Township Map Book. Trusted by professionals across Myanmar.',
@@ -198,7 +198,7 @@ const translations: Record<Language, Record<string, string>> = {
     'header.menu': 'မီနူး',
     
     // Hero Section
-    'hero.badge': '၂၀၁၅ ခုနှစ်မှစ၍ တိကျသော မြေပုံရေးဆွဲခြင်း',
+    'hero.badge': '၁၉၉၅ ခုနှစ်မှစ၍ တိကျသော မြေပုံရေးဆွဲခြင်း',
     'hero.title': 'ရန်ကုန် နှင့် မြန်မာပြည်မြေပုံများ အထူးဈေးနှုန်း  ',
     'hero.titleHighlight': '( တစ်ဝက် လျော့ဈေး ) ဖြင့် ရယူလိုက်ပါ (နှစ်ပတ် အတွင်းသာ)',
     'hero.subtitle': 'အရည်အသွေးမြင့် ရန်ကုန်မြေပုံများ၊ စိတ်ကြိုက်မြေပုံပုံနှိပ်ခြင်းများနှင့် မြို့နယ်မြေပုံစာအုပ် စုဆောင်းမှုကို ရှာဖွေပါ။ မြန်မာတစ်နိုင်ငံလုံးရှိ ပညာရှင်များ ယုံကြည်စိတ်ချရသော။',
