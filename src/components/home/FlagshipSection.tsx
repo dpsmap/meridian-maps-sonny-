@@ -2,16 +2,18 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, BookOpen, MapPin, Shield, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { products, formatPrice } from '@/lib/mockData';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export function FlagshipSection() {
+  const { t } = useLanguage();
   const flagshipProduct = products.find(p => p.id === 1);
   if (!flagshipProduct) return null;
 
   const features = [
-    { icon: MapPin, text: '33 Townships Covered' },
-    { icon: BookOpen, text: '5,000+ Indexed Locations' },
-    { icon: Shield, text: 'Verified Data Sources' },
-    { icon: Star, text: `${flagshipProduct.average_rating} Star Rating` },
+    { icon: MapPin, text: t('flagship.townshipsCovered') },
+    { icon: BookOpen, text: t('flagship.indexedLocations') },
+    { icon: Shield, text: t('flagship.verifiedData') },
+    { icon: Star, text: t('flagship.starRating').replace('{rating}', flagshipProduct.average_rating) },
   ];
 
   return (
@@ -30,7 +32,7 @@ export function FlagshipSection() {
             {/* Floating Badge */}
             <div className="absolute -bottom-6 -right-6 rounded-xl bg-terracotta p-6 text-primary-foreground shadow-lg md:-right-8">
               <div className="text-center">
-                <span className="text-xs uppercase tracking-wider opacity-80">Special Price</span>
+                <span className="text-xs uppercase tracking-wider opacity-80">{t('flagship.specialPrice')}</span>
                 <div className="font-display text-2xl font-bold">{formatPrice(flagshipProduct.price)}</div>
                 {flagshipProduct.on_sale && (
                   <span className="text-sm line-through opacity-60">{formatPrice(flagshipProduct.regular_price)}</span>
@@ -44,7 +46,7 @@ export function FlagshipSection() {
           {/* Content Side */}
           <div className="lg:py-8">
             <span className="mb-4 inline-block rounded-full bg-terracotta/10 px-4 py-1 text-sm font-medium text-terracotta">
-              Flagship Product
+              {t('flagship.badge')}
             </span>
             <h2 className="font-display text-3xl font-bold leading-tight md:text-4xl">
               {flagshipProduct.name}
@@ -76,7 +78,7 @@ export function FlagshipSection() {
                 ))}
               </div>
               <span className="text-sm text-muted-foreground">
-                Based on {flagshipProduct.rating_count} reviews
+                {t('flagship.basedOnReviews').replace('{count}', String(flagshipProduct.rating_count))}
               </span>
             </div>
 
@@ -84,12 +86,12 @@ export function FlagshipSection() {
             <div className="mt-8 flex flex-wrap gap-4">
               <Button size="lg" variant="cta" asChild>
                 <Link to={`/product/${flagshipProduct.slug}`}>
-                  Learn More
+                  {t('flagship.learnMore')}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <Link to="/products?category=a4-book">View All Books</Link>
+                <Link to="/products?category=a4-book">{t('flagship.viewAllBooks')}</Link>
               </Button>
             </div>
           </div>

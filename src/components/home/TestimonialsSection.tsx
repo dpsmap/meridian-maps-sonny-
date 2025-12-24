@@ -2,8 +2,10 @@ import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Star, Quote } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { testimonials } from '@/lib/mockData';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export function TestimonialsSection() {
+  const { t } = useLanguage();
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
@@ -26,10 +28,10 @@ export function TestimonialsSection() {
       <div className="container">
         <div className="text-center mb-12">
           <span className="mb-2 inline-block text-sm font-medium uppercase tracking-wider text-terracotta">
-            Testimonials
+            {t('testimonials.label')}
           </span>
           <h2 className="font-display text-3xl font-bold md:text-4xl">
-            What Our Customers Say
+            {t('testimonials.title')}
           </h2>
         </div>
 

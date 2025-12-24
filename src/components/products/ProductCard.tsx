@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Product, formatPrice } from '@/lib/mockData';
 import { useCart } from '@/contexts/CartContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface ProductCardProps {
   product: Product;
@@ -11,6 +12,7 @@ interface ProductCardProps {
 
 export function ProductCard({ product }: ProductCardProps) {
   const { addItem } = useCart();
+  const { t } = useLanguage();
 
   return (
     <article className="group relative flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
@@ -23,12 +25,12 @@ export function ProductCard({ product }: ProductCardProps) {
         />
         {product.on_sale && (
           <Badge className="absolute left-3 top-3 bg-terracotta text-primary-foreground">
-            Sale
+            {t('product.sale')}
           </Badge>
         )}
         {product.featured && !product.on_sale && (
           <Badge className="absolute left-3 top-3 bg-primary text-primary-foreground">
-            Featured
+            {t('product.featured')}
           </Badge>
         )}
       </Link>

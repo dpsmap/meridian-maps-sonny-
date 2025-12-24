@@ -2,8 +2,11 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export function CTASection() {
+  const { t } = useLanguage();
+
   return (
     <section className="py-20 md:py-28 parchment-texture relative overflow-hidden">
       {/* Decorative Elements */}
@@ -13,14 +16,13 @@ export function CTASection() {
       <div className="container relative">
         <div className="mx-auto max-w-3xl text-center">
           <span className="mb-4 inline-block rounded-full bg-primary/10 px-4 py-1 text-sm font-medium text-primary">
-            Stay Updated
+            {t('cta.label')}
           </span>
           <h2 className="font-display text-3xl font-bold md:text-4xl">
-            Get 10% Off Your First Order
+            {t('cta.title')}
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Subscribe to our newsletter for exclusive offers, new product announcements, 
-            and cartography insights delivered to your inbox.
+            {t('cta.subtitle')}
           </p>
 
           {/* Newsletter Form */}
@@ -29,30 +31,30 @@ export function CTASection() {
               <Mail className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
               <Input
                 type="email"
-                placeholder="Enter your email"
+                placeholder={t('cta.placeholder')}
                 className="pl-10 h-12"
               />
             </div>
             <Button size="lg" variant="cta">
-              Subscribe
+              {t('cta.button')}
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </form>
 
           <p className="mt-4 text-xs text-muted-foreground">
-            By subscribing, you agree to our Privacy Policy. Unsubscribe anytime.
+            {t('cta.privacy')}
           </p>
 
           {/* Quick Links */}
           <div className="mt-12 flex flex-wrap justify-center gap-4">
             <Button variant="outline" asChild>
-              <Link to="/products">Browse All Maps</Link>
+              <Link to="/products">{t('cta.browseAll')}</Link>
             </Button>
             <Button variant="outline" asChild>
-              <Link to="/products?category=vinyl">Wall Maps</Link>
+              <Link to="/products?category=vinyl">{t('cta.wallMaps')}</Link>
             </Button>
             <Button variant="outline" asChild>
-              <Link to="/products?category=a4-book">Map Books</Link>
+              <Link to="/products?category=a4-book">{t('cta.mapBooks')}</Link>
             </Button>
           </div>
         </div>

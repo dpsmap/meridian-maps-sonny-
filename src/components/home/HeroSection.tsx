@@ -1,12 +1,15 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface HeroSectionProps {
   heroImage: string;
 }
 
 export function HeroSection({ heroImage }: HeroSectionProps) {
+  const { t } = useLanguage();
+
   return (
     <section className="relative min-h-[85vh] flex items-center overflow-hidden">
       {/* Background Image */}
@@ -29,32 +32,31 @@ export function HeroSection({ heroImage }: HeroSectionProps) {
           {/* Badge */}
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary-foreground/20 bg-primary-foreground/10 px-4 py-2 backdrop-blur-sm animate-fade-in">
             <MapPin className="h-4 w-4 text-terracotta-light" />
-            <span className="text-sm font-medium text-primary-foreground">Precision Cartography Since 2015</span>
+            <span className="text-sm font-medium text-primary-foreground">{t('hero.badge')}</span>
           </div>
 
           {/* Headline */}
           <h1 className="font-display text-4xl font-bold leading-tight text-primary-foreground sm:text-5xl md:text-6xl animate-slide-up" style={{ animationDelay: '0.1s' }}>
-            Explore Yangon & Beyond with{' '}
-            <span className="text-terracotta-light">Precision</span>
+            {t('hero.title')}{' '}
+            <span className="text-terracotta-light">{t('hero.titleHighlight')}</span>
           </h1>
 
           {/* Subheadline */}
           <p className="mt-6 text-lg text-primary-foreground/80 max-w-xl animate-slide-up" style={{ animationDelay: '0.2s' }}>
-            Discover our collection of high-quality Yangon maps, custom map prints, 
-            and the definitive Township Map Book. Trusted by professionals across Myanmar.
+            {t('hero.subtitle')}
           </p>
 
           {/* CTA Buttons */}
           <div className="mt-8 flex flex-wrap gap-4 animate-slide-up" style={{ animationDelay: '0.3s' }}>
             <Button size="xl" variant="hero" asChild>
               <Link to="/products">
-                Shop Now
+                {t('hero.shopNow')}
                 <ArrowRight className="h-5 w-5 ml-2" />
               </Link>
             </Button>
             <Button size="xl" variant="heroOutline" asChild>
               <Link to="/product/township-map-book-ycdc">
-                Explore Map Books
+                {t('hero.viewCollection')}
               </Link>
             </Button>
           </div>
@@ -63,17 +65,17 @@ export function HeroSection({ heroImage }: HeroSectionProps) {
           <div className="mt-12 flex flex-wrap items-center gap-8 text-primary-foreground/70 animate-fade-in" style={{ animationDelay: '0.5s' }}>
             <div className="flex items-center gap-2">
               <span className="text-2xl font-bold text-primary-foreground">5000+</span>
-              <span className="text-sm">Maps Sold</span>
+              <span className="text-sm">{t('hero.mapsSold')}</span>
             </div>
             <div className="h-6 w-px bg-primary-foreground/30" />
             <div className="flex items-center gap-2">
               <span className="text-2xl font-bold text-primary-foreground">4.9</span>
-              <span className="text-sm">Customer Rating</span>
+              <span className="text-sm">{t('hero.customerRating')}</span>
             </div>
             <div className="h-6 w-px bg-primary-foreground/30" />
             <div className="flex items-center gap-2">
               <span className="text-2xl font-bold text-primary-foreground">33</span>
-              <span className="text-sm">Townships Covered</span>
+              <span className="text-sm">{t('hero.townshipsCovered')}</span>
             </div>
           </div>
         </div>
@@ -82,7 +84,7 @@ export function HeroSection({ heroImage }: HeroSectionProps) {
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
         <div className="flex flex-col items-center gap-2 text-primary-foreground/60">
-          <span className="text-xs uppercase tracking-wider">Scroll</span>
+          <span className="text-xs uppercase tracking-wider">{t('hero.scroll')}</span>
           <div className="h-8 w-0.5 bg-primary-foreground/30" />
         </div>
       </div>

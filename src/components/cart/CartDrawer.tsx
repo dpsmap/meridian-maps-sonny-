@@ -4,9 +4,11 @@ import { Button } from '@/components/ui/button';
 import { useCart } from '@/contexts/CartContext';
 import { formatPrice } from '@/lib/mockData';
 import { cn } from '@/lib/utils';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export function CartDrawer() {
   const { items, isOpen, closeCart, updateQuantity, removeItem, subtotal, totalItems } = useCart();
+  const { t } = useLanguage();
 
   return (
     <>
@@ -30,7 +32,7 @@ export function CartDrawer() {
         <div className="flex items-center justify-between border-b border-border px-6 py-4">
           <div className="flex items-center gap-2">
             <ShoppingBag className="h-5 w-5 text-primary" />
-            <h2 className="font-display text-lg font-semibold">Your Cart</h2>
+            <h2 className="font-display text-lg font-semibold">{t('cart.title')}</h2>
             <span className="rounded-full bg-primary px-2 py-0.5 text-xs font-medium text-primary-foreground">
               {totalItems}
             </span>
@@ -48,11 +50,11 @@ export function CartDrawer() {
                 <ShoppingBag className="h-10 w-10 text-muted-foreground" />
               </div>
               <div>
-                <p className="font-display text-lg font-semibold">Your cart is empty</p>
-                <p className="text-sm text-muted-foreground">Add some beautiful maps to get started</p>
+                <p className="font-display text-lg font-semibold">{t('cart.empty')}</p>
+                <p className="text-sm text-muted-foreground">{t('cart.emptyDesc')}</p>
               </div>
               <Button onClick={closeCart} asChild>
-                <Link to="/products">Browse Products</Link>
+                <Link to="/products">{t('cart.browseProducts')}</Link>
               </Button>
             </div>
           ) : (
@@ -127,16 +129,16 @@ export function CartDrawer() {
         {items.length > 0 && (
           <div className="border-t border-border bg-secondary/30 px-6 py-4">
             <div className="mb-4 flex items-center justify-between">
-              <span className="text-muted-foreground">Subtotal</span>
+              <span className="text-muted-foreground">{t('cart.subtotal')}</span>
               <span className="font-display text-xl font-bold">{formatPrice(subtotal)}</span>
             </div>
-            <p className="mb-4 text-xs text-muted-foreground">Shipping calculated at checkout</p>
+            <p className="mb-4 text-xs text-muted-foreground">{t('cart.shippingNote')}</p>
             <div className="flex flex-col gap-2">
               <Button size="lg" className="w-full" asChild onClick={closeCart}>
-                <Link to="/checkout">Proceed to Checkout</Link>
+                <Link to="/checkout">{t('cart.checkout')}</Link>
               </Button>
               <Button variant="outline" size="lg" className="w-full" onClick={closeCart}>
-                Continue Shopping
+                {t('cart.continueShopping')}
               </Button>
             </div>
           </div>
