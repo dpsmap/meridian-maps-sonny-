@@ -3,6 +3,8 @@ import { Link, useLocation } from 'react-router-dom';
 import { ShoppingCart, Menu, X, User, Search, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useCart } from '@/contexts/CartContext';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { cn } from '@/lib/utils';
 
 interface HeaderProps {
@@ -12,14 +14,15 @@ interface HeaderProps {
 export function Header({ onAuthClick }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { totalItems, openCart } = useCart();
+  const { t } = useLanguage();
   const location = useLocation();
 
   const navLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/products', label: 'Shop Maps' },
-    { href: '/products?category=vinyl', label: 'Wall Maps' },
-    { href: '/products?category=a4-book', label: 'Map Books' },
-    { href: '/blog', label: 'Blog' },
+    { href: '/', label: t('nav.home') },
+    { href: '/products', label: t('nav.shop') },
+    { href: '/products?category=vinyl', label: t('nav.wallMaps') },
+    { href: '/products?category=a4-book', label: t('nav.mapBooks') },
+    { href: '/blog', label: t('nav.blog') },
   ];
 
   const isActive = (href: string) => {
@@ -64,9 +67,11 @@ export function Header({ onAuthClick }: HeaderProps) {
 
         {/* Right Actions */}
         <div className="flex items-center gap-2">
+          <LanguageSwitcher />
+          
           <Button variant="ghost" size="icon" className="hidden sm:flex">
             <Search className="h-5 w-5" />
-            <span className="sr-only">Search</span>
+            <span className="sr-only">{t('header.search')}</span>
           </Button>
 
           <Button 

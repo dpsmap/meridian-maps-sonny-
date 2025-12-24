@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { CartProvider } from '@/contexts/CartContext';
+import { LanguageProvider } from '@/contexts/LanguageContext';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { CartDrawer } from '@/components/cart/CartDrawer';
@@ -28,7 +29,8 @@ const App = () => {
   return (
     <HelmetProvider>
       <QueryClientProvider client={queryClient}>
-        <CartProvider>
+        <LanguageProvider>
+          <CartProvider>
           <TooltipProvider>
             <Toaster />
             <Sonner />
@@ -51,7 +53,8 @@ const App = () => {
               <AuthModal isOpen={isAuthModalOpen} onClose={() => setIsAuthModalOpen(false)} />
             </BrowserRouter>
           </TooltipProvider>
-        </CartProvider>
+          </CartProvider>
+        </LanguageProvider>
       </QueryClientProvider>
     </HelmetProvider>
   );
