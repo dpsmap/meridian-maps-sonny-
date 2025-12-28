@@ -6,6 +6,8 @@ import { useCart } from '@/contexts/CartContext';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { cn } from '@/lib/utils';
+import old from '@/assets/old.png'
+
 
 interface HeaderProps {
   onAuthClick: () => void;
@@ -196,7 +198,7 @@ export function Header({ onAuthClick }: HeaderProps) {
             <div className="relative overflow-hidden rounded-lg bg-muted">
               <img 
                 // ဒီနေရာမှာ မိမိထည့်ချင်တဲ့ ပုံ link ကိုထည့်ပါ
-                src="src/assets/old.png" 
+                src={old} 
                 alt="Old Website" 
                 className="h-32 w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
