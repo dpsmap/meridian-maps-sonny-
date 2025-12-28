@@ -62,6 +62,7 @@ export const categories: Category[] = [
   { id: 9, name: "A4 Paper", slug: "a4-paper", description: "A4 paper maps", count: 20 },
   { id: 10, name: "A4 Book", slug: "a4-book", description: "A4 book format maps", count: 8 },
 ];
+import bookImage from '@/assets/book.png'
 
 export const products: Product[] = [
   {
@@ -91,7 +92,7 @@ export const products: Product[] = [
     stock_status: "instock",
     categories: [{ id: 10, name: "A4 Book", slug: "a4-book" }],
     images: [
-      { id: 1, src: "/placeholder.svg", alt: "Township Map Book Cover" },
+      { id: 1, src: bookImage, alt: "Township Map Book Cover" },
       { id: 2, src: "/placeholder.svg", alt: "Inside pages" },
       { id: 3, src: "/placeholder.svg", alt: "Index section" },
     ],

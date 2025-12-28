@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { Product, formatPrice } from '@/lib/mockData';
 import { useCart } from '@/contexts/CartContext';
 import { useLanguage } from '@/contexts/LanguageContext';
+import bookImage from '@/assets/book.png'
 
 interface ProductCardProps {
   product: Product;

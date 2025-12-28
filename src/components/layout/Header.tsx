@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ShoppingCart, Menu, X, User, Search, MapPin } from 'lucide-react';
+import { ShoppingCart, Menu, X, User, Search, MapPin, Bell, Tag } from 'lucide-react'; // Added Bell & Tag icons
 import { Button } from '@/components/ui/button';
 import { useCart } from '@/contexts/CartContext';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -13,6 +13,8 @@ interface HeaderProps {
 
 export function Header({ onAuthClick }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [showAd, setShowAd] = useState(true); 
+  
   const { totalItems, openCart } = useCart();
   const { t } = useLanguage();
   const location = useLocation();
@@ -31,109 +33,186 @@ export function Header({ onAuthClick }: HeaderProps) {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
-      <div className="container flex h-16 items-center justify-between md:h-20">
-        {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 transition-opacity hover:opacity-80">
-          {/* <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary shadow-sm"> */}
-            <img src="https://www.dpsmap.com/assets/favicon/favicon-512x512.png" alt="Logo" className="h-16 w-16" />
-            {/* <MapPin className="h-5 w-5 text-primary-foreground" /> */}
-          {/* </div> */}
-          <div className="flex flex-col">
-            <span className="font-display text-xl font-bold text-foreground">DPS Map</span>
-            <span className="hidden text-xs text-muted-foreground sm:block">Precision Cartography</span>
-          </div>
-        </Link>
+    <>
+      {/* --- CSS for Marquee Animation --- */}
+      <style>{`
+        @keyframes marquee {
+          0% { transform: translateX(100%); }
+          100% { transform: translateX(-100%); }
+        }
+        .animate-marquee {
+          animation: marquee 55s linear infinite;
+        }
+        /* Mouse တင်လိုက်ရင် ရပ်သွားမယ့် effect */
+        .pause-on-hover:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden items-center gap-1 lg:flex">
-          {navLinks.map(link => (
-            <Link
-              key={link.href}
-              to={link.href}
-              className={cn(
-                "relative px-4 py-2 text-sm font-medium transition-colors hover:text-primary",
-                isActive(link.href) 
-                  ? "text-primary" 
-                  : "text-muted-foreground"
-              )}
-            >
-              {link.label}
-              {isActive(link.href) && (
-                <span className="absolute bottom-0 left-1/2 h-0.5 w-8 -translate-x-1/2 rounded-full bg-primary" />
-              )}
-            </Link>
-          ))}
-        </nav>
-
-        {/* Right Actions */}
-        <div className="flex items-center gap-2">
-          <LanguageSwitcher />
+      {/* --- Top Marquee Bar --- */}
+      <div className="bg-black text-white py-2 text-sm font-medium overflow-hidden relative z-[60]">
+        <div className="animate-marquee pause-on-hover whitespace-nowrap flex items-center gap-12 w-full">
+          {/* News Item */}
+          <span className="flex items-center gap-2">
+            <Bell className="h-4 w-4 fill-current" />
+            <span>Latest News: 2025 Yangon City Map Update is now available! Pre-order now with promo price 27,000mmk.</span>
+          </span>
           
-          <Button variant="ghost" size="icon" className="hidden sm:flex">
-            <Search className="h-5 w-5" />
-            <span className="sr-only">{t('header.search')}</span>
-          </Button>
+          {/* Coupon Item */}
+          <span className="flex items-center gap-2 text-yellow-300">
+            <Tag className="h-4 w-4" />
+            <span>Special Offer: Use code <strong>DPS2025</strong> to get 10% Discount on all Wall Maps! Limited time only.</span>
+          </span>
 
-          <Button 
-            variant="ghost" 
-            size="icon"
-            onClick={onAuthClick}
-          >
-            <User className="h-5 w-5" />
-            <span className="sr-only">Account</span>
-          </Button>
-
-          <Button 
-            variant="ghost" 
-            size="icon" 
-            className="relative"
-            onClick={openCart}
-          >
-            <ShoppingCart className="h-5 w-5" />
-            {totalItems > 0 && (
-              <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-terracotta text-xs font-bold text-primary-foreground">
-                {totalItems}
-              </span>
-            )}
-            <span className="sr-only">Cart</span>
-          </Button>
-
-          {/* Mobile Menu Toggle */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="lg:hidden"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            <span className="sr-only">Menu</span>
-          </Button>
+           {/* Repeat Items for seamless look (Optional) */}
+           <span className="flex items-center gap-2">
+            <MapPin className="h-4 w-4" />
+            <span>Visit us at Pazundaung Township. Open daily 9am-6pm.ph-09775204020</span>
+          </span>
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="animate-slide-up border-t border-border bg-background lg:hidden">
-          <nav className="container flex flex-col py-4">
+      {/* --- Main Header --- */}
+      <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
+        <div className="container flex h-16 items-center justify-between md:h-20">
+          {/* Logo */}
+          <Link to="/" className="flex items-center gap-2 transition-opacity hover:opacity-80">
+            <img src="https://www.dpsmap.com/assets/favicon/favicon-512x512.png" alt="Logo" className="h-16 w-16" />
+            <div className="flex flex-col">
+              <span className="font-display text-xl font-bold text-foreground">DPS Map</span>
+              <span className="hidden text-xs text-muted-foreground sm:block">Precision Cartography</span>
+            </div>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden items-center gap-1 lg:flex">
             {navLinks.map(link => (
               <Link
                 key={link.href}
                 to={link.href}
-                onClick={() => setIsMobileMenuOpen(false)}
                 className={cn(
-                  "px-4 py-3 text-base font-medium transition-colors hover:bg-secondary",
+                  "relative px-4 py-2 text-sm font-medium transition-colors hover:text-primary",
                   isActive(link.href) 
                     ? "text-primary" 
                     : "text-muted-foreground"
                 )}
               >
                 {link.label}
+                {isActive(link.href) && (
+                  <span className="absolute bottom-0 left-1/2 h-0.5 w-8 -translate-x-1/2 rounded-full bg-primary" />
+                )}
               </Link>
             ))}
           </nav>
+
+          {/* Right Actions */}
+          <div className="flex items-center gap-2">
+            <LanguageSwitcher />
+            
+            <Button variant="ghost" size="icon" className="hidden sm:flex">
+              <Search className="h-5 w-5" />
+              <span className="sr-only">{t('header.search')}</span>
+            </Button>
+
+            <Button 
+              variant="ghost" 
+              size="icon"
+              onClick={onAuthClick}
+            >
+              <User className="h-5 w-5" />
+              <span className="sr-only">Account</span>
+            </Button>
+
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="relative"
+              onClick={openCart}
+            >
+              <ShoppingCart className="h-5 w-5" />
+              {totalItems > 0 && (
+                <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-terracotta text-xs font-bold text-primary-foreground">
+                  {totalItems}
+                </span>
+              )}
+              <span className="sr-only">Cart</span>
+            </Button>
+
+            {/* Mobile Menu Toggle */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="lg:hidden"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              <span className="sr-only">Menu</span>
+            </Button>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="animate-slide-up border-t border-border bg-background lg:hidden">
+            <nav className="container flex flex-col py-4">
+              {navLinks.map(link => (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={cn(
+                    "px-4 py-3 text-base font-medium transition-colors hover:bg-secondary",
+                    isActive(link.href) 
+                      ? "text-primary" 
+                      : "text-muted-foreground"
+                  )}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
+        )}
+      </header>
+
+      {/* --- Advertisement Floating Card --- */}
+      {showAd && (
+        <div className="fixed right-4 top-1/2 z-40 w-64 -translate-y-1/2 transform rounded-xl border border-border bg-card p-3 shadow-2xl transition-all duration-300 animate-in slide-in-from-right-10">
+          {/* Badge */}
+          <span className="absolute -left-2 -top-2 z-10 rounded-full bg-red-500 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white shadow-sm">
+            Old HomePage
+          </span>
+
+          {/* Close Button */}
+          <button 
+            onClick={() => setShowAd(false)} 
+            className="absolute right-2 top-2 z-10 rounded-full bg-black/20 p-1 text-white hover:bg-black/40 transition-colors"
+          >
+            <X className="h-3 w-3" />
+          </button>
+
+          {/* Ad Content */}
+          <a href="https://dpsmap.com/" className="group block space-y-3">
+            <div className="relative overflow-hidden rounded-lg bg-muted">
+              <img 
+                // ဒီနေရာမှာ မိမိထည့်ချင်တဲ့ ပုံ link ကိုထည့်ပါ
+                src="src/assets/old.png" 
+                alt="Old Website" 
+                className="h-32 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+            
+            <div className="px-1">
+              <h4 className="font-display text-sm font-bold leading-tight group-hover:text-primary">
+                Click here to Visit Our old HomePage
+              </h4>
+              <p className="mt-1 text-xs text-muted-foreground">
+                See the previous version of our homepage
+              </p>
+            </div>
+          </a>
         </div>
       )}
-    </header>
+    </>
   );
 }

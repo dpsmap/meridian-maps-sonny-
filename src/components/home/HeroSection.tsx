@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
+import bookImage from '@/assets/book.png'
+
 
 interface HeroSectionProps {
   heroImage: string;
@@ -56,7 +58,7 @@ export function HeroSection({ heroImage }: HeroSectionProps) {
               </Link>
             </Button>
             <Button size="xl" variant="heroOutline" asChild>
-              <Link to="/product/township-map-book-ycdc">
+              <Link to={bookImage}>
                 {t('hero.viewCollection')}
               </Link>
             </Button>

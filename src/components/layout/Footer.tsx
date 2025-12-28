@@ -1,88 +1,152 @@
 import { Link } from 'react-router-dom';
-import { MapPin, Mail, Phone, Facebook, Instagram, Youtube } from 'lucide-react';
+import { MapPin, Mail, Phone, Facebook, Globe, Printer } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export function Footer() {
   const { t } = useLanguage();
 
   return (
-    <footer className="border-t border-border bg-secondary/50">
+    <footer className="border-t border-border bg-[#1a1a1a] text-white">
+      {/* Main Footer Content */}
       <div className="container py-12 md:py-16">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-          {/* Brand Column */}
-          <div className="space-y-4">
-            <Link to="/" className="flex items-center gap-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
-                <MapPin className="h-5 w-5 text-primary-foreground" />
+          
+          {/* Column 1: Products & Services (Moved from HTML 'far-left') */}
+          <div className="space-y-4 lg:col-span-1">
+            <h3 className="font-display text-lg font-bold text-white uppercase tracking-wider">
+              {t('footer.products') || 'Products & Services'}
+            </h3>
+            
+            {/* Using a mini-grid for the long list of links to match the original HTML structure */}
+            <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-gray-400">
+              <div className="flex flex-col gap-2">
+                <a href="https://dpsmap.com/pages/map-download/" className="hover:text-primary transition-colors">Free Map Download</a>
+                <a href="https://yangontownshipmapbook.dpsmap.com/" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">Yangon Township Map Book</a>
+                <a href="https://dpsmap.com/myanmar/#en" className="hover:text-primary transition-colors">Myanmar Map (ENG)</a>
+                <a href="https://dpsmap.com/myanmar/#mm" className="hover:text-primary transition-colors">Myanmar Map (MM)</a>
+                <a href="https://dpsmap.com/mandalay/" className="hover:text-primary transition-colors">Mandalay Map</a>
+                <a href="https://dpsmap.com/pyinoolwin/" className="hover:text-primary transition-colors">Pyinoolwin Map</a>
+                <a href="https://dpsmap.com/taunggyi/" className="hover:text-primary transition-colors">Taunggyi Map</a>
+                <a href="https://dpsmap.com/sittwe/" className="hover:text-primary transition-colors">Sittwe Map</a>
               </div>
-              <span className="font-display text-xl font-bold">DPS Map</span>
-            </Link>
-            <p className="text-sm text-muted-foreground">
-              {t('footer.description')}
-            </p>
-            <div className="flex gap-3">
-              <a href="#" className="rounded-lg bg-muted p-2 transition-colors hover:bg-primary hover:text-primary-foreground">
-                <Facebook className="h-4 w-4" />
-              </a>
-              <a href="#" className="rounded-lg bg-muted p-2 transition-colors hover:bg-primary hover:text-primary-foreground">
-                <Instagram className="h-4 w-4" />
-              </a>
-              <a href="#" className="rounded-lg bg-muted p-2 transition-colors hover:bg-primary hover:text-primary-foreground">
-                <Youtube className="h-4 w-4" />
-              </a>
+              <div className="flex flex-col gap-2">
+                <a href="https://flood.firetree.net/?ll=16.8059,96.1628&zoom=10&m=5" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">Flood Simulation</a>
+                <a href="https://dpsmap.com/1sqft/" className="hover:text-primary transition-colors">1SQFT</a>
+                <a href="https://dpsmap.com/bago/" className="hover:text-primary transition-colors">Bago Map</a>
+                <a href="https://dpsmap.com/yangon/" className="hover:text-primary transition-colors">Yangon Map</a>
+                <a href="https://dpsmap.com/naypyitaw/" className="hover:text-primary transition-colors">Naypyitaw Map</a>
+                <a href="https://dpsmap.com/bagan/" className="hover:text-primary transition-colors">Bagan Map</a>
+                <a href="https://dpsmap.com/inlay/" className="hover:text-primary transition-colors">Inlay Map</a>
+              </div>
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Column 2: Forms & Privacy (Merged 'left' content) */}
           <div className="space-y-4">
-            <h3 className="font-display text-lg font-semibold">{t('footer.shop')}</h3>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><Link to="/products?category=vinyl" className="hover:text-primary">{t('footer.wallMaps')}</Link></li>
-              <li><Link to="/products?category=a4-book" className="hover:text-primary">{t('footer.mapBooks')}</Link></li>
-              <li><Link to="/products?category=canvas" className="hover:text-primary">{t('footer.canvasPrints')}</Link></li>
-              <li><Link to="/products?category=sticker" className="hover:text-primary">{t('footer.stickers')}</Link></li>
-              <li><Link to="/products" className="hover:text-primary">{t('footer.allProducts')}</Link></li>
+            <h3 className="font-display text-lg font-bold text-white uppercase tracking-wider">
+               Land Tenure & Policy
+            </h3>
+            <div className="space-y-4 text-sm text-gray-400">
+              
+              {/* Form 105 Section */}
+              <div className="group">
+                <a href="https://dpsmap.com/form105/" target="_blank" rel="noreferrer" className="block hover:text-primary mb-2">
+                  Form (105), Form (7) Land Tenure
+                </a>
+                <a href="https://dpsmap.com/form105/" className="block overflow-hidden rounded-lg border border-gray-700">
+                  <img 
+                    src="https://dpsmap.com/assets/images/bg-arts/about_map_update.webp" 
+                    alt="Form 105" 
+                    className="h-auto w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                </a>
+              </div>
+
+              {/* Privacy Links */}
+              <div className="pt-4">
+                 <h4 className="font-bold text-white mb-2">Our Privacy & Policy</h4>
+                 <Link to="/privacy-policy" className="block hover:text-primary mb-2">Privacy and Policy</Link>
+                 <a href="https://dpsmap.com/valuedclients/" className="block font-semibold text-yellow-400 hover:text-yellow-300">
+                   Our Valued Clients
+                 </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Column 3: Office Address (From 'right' content) */}
+          <div className="space-y-4">
+            <h3 className="font-display text-lg font-bold text-white uppercase tracking-wider">
+              {t('footer.address') || 'Office Address'}
+            </h3>
+            <ul className="space-y-4 text-sm text-gray-400">
+              <li className="flex items-start gap-3">
+                <MapPin className="mt-1 h-5 w-5 shrink-0 text-primary" />
+                <a href="https://g.page/DPSMAP?share" target="_blank" rel="noreferrer" className="hover:text-primary leading-relaxed">
+                  Rm:307, Yae Kyaw Complex, Yae Kyaw Road,<br />
+                  Pazundaung Township, Yangon, Myanmar (Burma)
+                </a>
+              </li>
+              <li className="flex items-start gap-3">
+                <Phone className="mt-1 h-5 w-5 shrink-0 text-primary" />
+                <div className="flex flex-col">
+                  <a href="tel:+959774204020" className="hover:text-primary">+95(09) 774204020</a>
+                  <a href="tel:+959775204020" className="hover:text-primary">+95(09) 775204020</a>
+                </div>
+              </li>
+              <li className="flex items-center gap-3">
+                <Mail className="h-5 w-5 shrink-0 text-primary" />
+                <div className="flex flex-col">
+                    <a href="mailto:dpsmap@gmail.com" className="hover:text-primary">dpsmap@gmail.com</a>
+                    <a href="mailto:dm@dpsmap.com" className="hover:text-primary">dm@dpsmap.com</a>
+                </div>
+              </li>
             </ul>
           </div>
 
-          {/* Information */}
+          {/* Column 4: Subscribe & QR (From 'far-right' content) */}
           <div className="space-y-4">
-            <h3 className="font-display text-lg font-semibold">{t('footer.information')}</h3>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><Link to="/about" className="hover:text-primary">{t('footer.aboutUs')}</Link></li>
-              <li><Link to="/shipping" className="hover:text-primary">{t('footer.shippingInfo')}</Link></li>
-              <li><Link to="/returns" className="hover:text-primary">{t('footer.returns')}</Link></li>
-              <li><Link to="/faq" className="hover:text-primary">{t('footer.faq')}</Link></li>
-              <li><Link to="/blog" className="hover:text-primary">{t('footer.blog')}</Link></li>
-            </ul>
-          </div>
+             <h3 className="font-display text-lg font-bold text-white uppercase tracking-wider">
+              Subscribe Here
+            </h3>
+            <p className="text-sm text-gray-400">
+              By entering your email, you will receive <span className="text-primary">the latest updates, offers, and features</span> about our Maps.
+            </p>
 
-          {/* Contact */}
-          <div className="space-y-4">
-            <h3 className="font-display text-lg font-semibold">{t('footer.contactUs')}</h3>
-            <ul className="space-y-3 text-sm text-muted-foreground">
-              <li className="flex items-start gap-2">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                <span>No. 123, Pyay Road, Kamayut Township, Yangon, Myanmar</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4 shrink-0 text-primary" />
-                <a href="tel:+959123456789" className="hover:text-primary">+95 9 123 456 789</a>
-              </li>
-              <li className="flex items-center gap-2">
-                <Mail className="h-4 w-4 shrink-0 text-primary" />
-                <a href="mailto:info@dpsmap.com" className="hover:text-primary">info@dpsmap.com</a>
-              </li>
-            </ul>
+            {/* QR Code Section */}
+            <div className="mt-6">
+                <a href="https://dpsmap.com/">
+                    <img 
+                        src="https://dpsmap.com/assets/images/OfficalDPS QR.png" 
+                        alt="DPS Official QR" 
+                        className="w-32 h-32 rounded-lg bg-white p-1"
+                    />
+                </a>
+            </div>
+
+            <div className="flex gap-3 mt-4">
+              <a href="https://www.facebook.com/DPSMyanmar" target="_blank" rel="noreferrer" className="rounded-lg bg-gray-800 p-2 transition-colors hover:bg-primary hover:text-white text-gray-400">
+                <Facebook className="h-5 w-5" />
+              </a>
+              <a href="https://dpsmap.com/" target="_blank" rel="noreferrer" className="rounded-lg bg-gray-800 p-2 transition-colors hover:bg-primary hover:text-white text-gray-400">
+                <Globe className="h-5 w-5" />
+              </a>
+            </div>
           </div>
         </div>
 
-        <div className="mt-12 border-t border-border pt-8">
-          <div className="flex flex-col items-center justify-between gap-4 text-sm text-muted-foreground md:flex-row">
-            <p>&copy; {new Date().getFullYear()} DPS Map Shop. {t('footer.rights')}</p>
-            <div className="flex gap-6">
-              <Link to="/privacy" className="hover:text-primary">{t('footer.privacy')}</Link>
-              <Link to="/terms" className="hover:text-primary">{t('footer.terms')}</Link>
+        {/* Bottom Bar / Copyright */}
+        <div className="mt-12 border-t border-gray-800 pt-8">
+          <div className="flex flex-col items-center justify-between gap-4 text-xs text-gray-500 md:flex-row">
+            <div className="text-center md:text-left">
+                <p>&copy; {new Date().getFullYear()} Design Printing Services Co. Ltd. All rights reserved.</p>
+                <p className="mt-1">Powered by DPS Map</p>
+            </div>
+            
+            {/* Action Buttons from Footer Credits */}
+            <div className="flex flex-wrap gap-2 justify-center">
+              <Link to="/1sqft" className="px-3 py-1 bg-gray-800 hover:bg-primary text-white rounded text-xs transition-colors">1SQFT Map</Link>
+              <Link to="/population" className="px-3 py-1 bg-gray-800 hover:bg-primary text-white rounded text-xs transition-colors">Population Map</Link>
+              <Link to="/industrial" className="px-3 py-1 bg-gray-800 hover:bg-primary text-white rounded text-xs transition-colors">Industrial Zone</Link>
             </div>
           </div>
         </div>

@@ -3,6 +3,7 @@ import { ArrowRight, BookOpen, MapPin, Shield, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { products, formatPrice } from '@/lib/mockData';
 import { useLanguage } from '@/contexts/LanguageContext';
+import bookImage from '@/assets/book.png'
 
 export function FlagshipSection() {
   const { t } = useLanguage();
@@ -24,8 +25,8 @@ export function FlagshipSection() {
           <div className="relative">
             <div className="aspect-[4/5] overflow-hidden rounded-2xl bg-secondary shadow-lg">
               <img
-                src={flagshipProduct.images[0]?.src || '/placeholder.svg'}
-                alt={flagshipProduct.name}
+                src={bookImage}
+                alt={bookImage}
                 className="h-full w-full object-cover"
               />
             </div>
