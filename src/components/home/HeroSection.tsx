@@ -61,7 +61,7 @@ export function HeroSection({ heroImage }: HeroSectionProps) {
               </Link>
             </Button>
             <Button size="xl" variant="heroOutline" asChild>
-              <Link to={bookImage}>
+              <Link to='https://shop.dpsmap.com/' target='_blank'>
                 {t('hero.viewCollection')}
               </Link>
             </Button>
