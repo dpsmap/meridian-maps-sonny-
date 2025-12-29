@@ -15,7 +15,11 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.shop': 'Shop Maps',
     'nav.wallMaps': 'Wall Maps',
     'nav.mapBooks': 'Map Books',
+    'nav.map': 'Maps',
     'nav.blog': 'Blog',
+    'nav.yangonMap':'Yangon Map',
+    'nav.myanmarMap':'Myanmar Map',
+    'nav.mandalayMap':'Mandalay Map',
     
     // Header
     'header.search': 'Search',
@@ -25,7 +29,9 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Hero Section
     'hero.badge': 'Precision Cartography Since 1995',
-    'hero.title': 'Get Yangon and Myanmar Maps at a Special Price',
+    'hero.title': ' Maps at a Special Price',
+    'hero.mm':' and Myanmar',
+    'hero.ygn': 'Get Yangon',
     'hero.titleHighlight': '(Almost Half Price) (Only for 7 weeks)',
     'hero.subtitle': 'Discover our collection of high-quality Yangon maps, custom map prints, and the definitive Township Map Book. Trusted by professionals across Myanmar.',
     'hero.shopNow': 'Shop Now',
@@ -190,6 +196,11 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.wallMaps': 'နံရံမြေပုံများ',
     'nav.mapBooks': 'မြေပုံစာအုပ်များ',
     'nav.blog': 'ဘလော့ဂ်',
+    'nav.map':'မြေပုံများ',
+    'nav.yangonMap':'ရန်ကုန်မြေပုံများ',
+    'nav.myanmarMap':'မြန်မာပြည်မြေပုံများ',
+    'nav.mandalayMap':'မန္တလေးမြေပုံများ',
+    
     
     // Header
     'header.search': 'ရှာဖွေရန်',
@@ -199,7 +210,9 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Hero Section
     'hero.badge': '၁၉၉၅ ခုနှစ်မှစ၍ တိကျသော မြေပုံရေးဆွဲခြင်း',
-    'hero.title': 'ရန်ကုန် နှင့် မြန်မာပြည်မြေပုံများ အထူးဈေးနှုန်း  ',
+    'hero.title': 'မြေပုံများ အထူးဈေးနှုန်း  ',
+    'hero.mm':'နှင့် မြန်မာပြည်',
+    'hero.ygn': 'ရန်ကုန်   ',
     'hero.titleHighlight': '( တစ်ဝက် လျော့ဈေး ) ဖြင့် ရယူလိုက်ပါ (နှစ်ပတ် အတွင်းသာ)',
     'hero.subtitle': 'အရည်အသွေးမြင့် ရန်ကုန်မြေပုံများ၊ စိတ်ကြိုက်မြေပုံပုံနှိပ်ခြင်းများနှင့် မြို့နယ်မြေပုံစာအုပ် စုဆောင်းမှုကို ရှာဖွေပါ။ မြန်မာတစ်နိုင်ငံလုံးရှိ ပညာရှင်များ ယုံကြည်စိတ်ချရသော။',
     'hero.shopNow': 'ယခုဝယ်ရန်',

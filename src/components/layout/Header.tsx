@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ShoppingCart, Menu, X, User, Search, MapPin, Bell, Tag } from 'lucide-react'; // Added Bell & Tag icons
+import { ShoppingCart, Menu, X, User, Search, MapPin, Bell, Tag, ChevronDown, Map } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useCart } from '@/contexts/CartContext';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -15,7 +15,9 @@ interface HeaderProps {
 
 export function Header({ onAuthClick }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [showAd, setShowAd] = useState(true); 
+  const [showAd, setShowAd] = useState(true);
+  const [isMapsDropdownOpen, setIsMapsDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   
   const { totalItems, openCart } = useCart();
   const { t } = useLanguage();
@@ -23,6 +25,7 @@ export function Header({ onAuthClick }: HeaderProps) {
 
   const navLinks = [
     { href: '/', label: t('nav.home') },
+    { href: '/maps', label: t('nav.map') },
     { href: '/products', label: t('nav.shop') },
     { href: '/products?category=vinyl', label: t('nav.wallMaps') },
     { href: '/products?category=a4-book', label: t('nav.mapBooks') },
@@ -31,8 +34,25 @@ export function Header({ onAuthClick }: HeaderProps) {
 
   const isActive = (href: string) => {
     if (href === '/') return location.pathname === '/';
+    if (href === '/maps') {
+      return location.pathname.startsWith('/maps');
+    }
     return location.pathname.startsWith(href.split('?')[0]);
   };
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsMapsDropdownOpen(false);
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   return (
     <>
@@ -89,21 +109,69 @@ export function Header({ onAuthClick }: HeaderProps) {
           {/* Desktop Navigation */}
           <nav className="hidden items-center gap-1 lg:flex">
             {navLinks.map(link => (
-              <Link
-                key={link.href}
-                to={link.href}
-                className={cn(
-                  "relative px-4 py-2 text-sm font-medium transition-colors hover:text-primary",
-                  isActive(link.href) 
-                    ? "text-primary" 
-                    : "text-muted-foreground"
-                )}
-              >
-                {link.label}
-                {isActive(link.href) && (
-                  <span className="absolute bottom-0 left-1/2 h-0.5 w-8 -translate-x-1/2 rounded-full bg-primary" />
-                )}
-              </Link>
+              link.href === '/maps' ? (
+                <div key={link.href} className="relative" ref={dropdownRef}>
+                  <button
+                    onClick={() => setIsMapsDropdownOpen(!isMapsDropdownOpen)}
+                    className={cn(
+                      "flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors hover:text-primary",
+                      isActive(link.href) 
+                        ? "text-primary" 
+                        : "text-muted-foreground"
+                    )}
+                  >
+                    {link.label}
+                    <ChevronDown className={`h-4 w-4 transition-transform ${isMapsDropdownOpen ? 'rotate-180' : ''}`} />
+                  </button>
+                  {isMapsDropdownOpen && (
+                    <div 
+                      className="absolute left-0 mt-1 w-48  border bg-popover p-2 shadow-lg z-50"
+                      onMouseLeave={() => setIsMapsDropdownOpen(false)}
+                    >
+                      <Link target="_blank"
+                        to="https://dpsmap.com/yangon/"
+                        className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
+                        onClick={() => setIsMapsDropdownOpen(false)}
+                      >
+                        {t('nav.yangonMap')}
+                      </Link>
+                      <Link target="_blank"
+                        to="https://dpsmap.com/myanmar/index.shtml"
+                        className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
+                        onClick={() => setIsMapsDropdownOpen(false)}
+                      >
+                        {t('nav.myanmarMap')}
+                      </Link>
+                       <Link target="_blank"
+                        to="https://dpsmap.com/mandalay/"
+                        className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
+                        onClick={() => setIsMapsDropdownOpen(false)}
+                      >
+                        {t('nav.mandalayMap')}
+                      </Link>
+                    </div>
+                  )}
+                  {isActive(link.href) && (
+                    <span className="absolute bottom-0 left-1/2 h-0.5 w-8 -translate-x-1/2 rounded-full bg-primary" />
+                  )}
+                </div>
+              ) : (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className={cn(
+                    "relative px-4 py-2 text-sm font-medium transition-colors hover:text-primary",
+                    isActive(link.href) 
+                      ? "text-primary" 
+                      : "text-muted-foreground"
+                  )}
+                >
+                  {link.label}
+                  {isActive(link.href) && (
+                    <span className="absolute bottom-0 left-1/2 h-0.5 w-8 -translate-x-1/2 rounded-full bg-primary" />
+                  )}
+                </Link>
+              )
             ))}
           </nav>
 
@@ -194,7 +262,7 @@ export function Header({ onAuthClick }: HeaderProps) {
           </button>
 
           {/* Ad Content */}
-          <a href="https://dpsmap.com/" className="group block space-y-3">
+          <a href="https://dpsmap.com/index-old.php" target='_blank' className="group block space-y-3">
             <div className="relative overflow-hidden rounded-lg bg-muted">
               <img 
                 // ဒီနေရာမှာ မိမိထည့်ချင်တဲ့ ပုံ link ကိုထည့်ပါ

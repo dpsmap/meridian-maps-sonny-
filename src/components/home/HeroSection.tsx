@@ -38,8 +38,11 @@ export function HeroSection({ heroImage }: HeroSectionProps) {
           </div>
 
           {/* Headline */}
-          <h1  className="font-display text-4xl font-bold leading-tight text-primary-foreground sm:text-5xl md:text-6xl animate-slide-up" style={{ animationDelay: '0.1s', lineHeight: '84px' }}>
-            {t('hero.title')}
+          <h1  className="font-display text-4xl font-bold leading-tight text-primary-foreground sm:text-5xl md:text-6xl animate-slide-up" style={{ animationDelay: '0.1s', lineHeight: '90px', }}>
+         <Link to="https://dpsmap.com/yangon" target='_blank' style={{textDecoration:'underline'}}>{t('hero.ygn')}</Link>
+         <Link to="https://dpsmap.com/myanmar" target='_blank' style={{textDecoration:'underline'}}>{t('hero.mm')}</Link>
+         
+           {t('hero.title')}
           <br />
             <span className="text-terracotta-light">{t('hero.titleHighlight')}</span>
           </h1>
