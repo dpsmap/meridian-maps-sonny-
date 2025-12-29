@@ -35,7 +35,7 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.titleHighlight': '(Almost Half Price) (Only for 7 weeks)',
     'hero.subtitle': 'Discover our collection of high-quality Yangon maps, custom map prints, and the definitive Township Map Book. Trusted by professionals across Myanmar.',
     'hero.shopNow': 'Shop Now',
-    // 'hero.viewCollection': 'Explore Map Books',
+    'hero.Explore': 'Explore Map Books',
     'hero.viewCollection': 'Buy Now',
     'hero.mapsSold': 'Maps Sold',
     'hero.customerRating': 'Customer Rating',
