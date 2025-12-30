@@ -15,18 +15,18 @@ export function CTASection() {
 
       <div className="container relative">
         <div className="mx-auto max-w-3xl text-center">
-          <span className="mb-4 inline-block rounded-full bg-primary/10 px-4 py-1 text-sm font-medium text-primary">
+          {/* <span className="mb-4 inline-block rounded-full bg-primary/10 px-4 py-1 text-sm font-medium text-primary">
             {t('cta.label')}
-          </span>
-          <h2 className="font-display text-3xl font-bold md:text-4xl">
+          </span> */}
+          <h2 className="font-display text-3xl font-bold md:text-4xl" style={{ lineHeight: '70px' }}>
             {t('cta.title')}
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
+          {/* <p className="mt-4 text-lg text-muted-foreground">
             {t('cta.subtitle')}
-          </p>
+          </p> */}
 
           {/* Newsletter Form */}
-          <form className="mt-8 flex flex-col gap-4 sm:flex-row sm:gap-2 max-w-md mx-auto">
+          {/* <form className="mt-8 flex flex-col gap-4 sm:flex-row sm:gap-2 max-w-md mx-auto">
             <div className="relative flex-1">
               <Mail className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
               <Input
@@ -43,10 +43,10 @@ export function CTASection() {
 
           <p className="mt-4 text-xs text-muted-foreground">
             {t('cta.privacy')}
-          </p>
+          </p> */}
 
           {/* Quick Links */}
-          <div className="mt-12 flex flex-wrap justify-center gap-4">
+          {/* <div className="mt-12 flex flex-wrap justify-center gap-4">
             <Button variant="outline" asChild>
               <Link to="/products">{t('cta.browseAll')}</Link>
             </Button>
@@ -56,7 +56,7 @@ export function CTASection() {
             <Button variant="outline" asChild>
               <Link to="/products?category=a4-book">{t('cta.mapBooks')}</Link>
             </Button>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

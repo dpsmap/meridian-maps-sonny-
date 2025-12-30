@@ -198,14 +198,14 @@ export function Header({ onAuthClick }: HeaderProps) {
                       >
                         {t('nav.industrial')}
                       </Link>
-                      <Link target="_blank"
+                      {/* <Link target="_blank"
                         to="https://dpsmap.com/onlinemapshop/"
                         className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
                         onClick={() => setIsMapsDropdownOpen(false)}
                       >
                         {t('nav.onlineMapShop')}
-                      </Link>
-                      <Link target="_blank"
+                      </Link> */}
+                      {/* <Link target="_blank"
                         to="https://dpsmap.com/yangon/eomap/"
                         className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
                         onClick={() => setIsMapsDropdownOpen(false)}
@@ -274,7 +274,7 @@ export function Header({ onAuthClick }: HeaderProps) {
                         onClick={() => setIsMapsDropdownOpen(false)}
                       >
                         {t('nav.sagaingMap')}
-                      </Link>
+                      </Link> */}
                     </div>
                   )}
                   {isActive(link.href) && (

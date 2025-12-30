@@ -65,6 +65,7 @@ export const categories: Category[] = [
 import bookImage from '@/assets/book.png'
 import yangonImage from '@/assets/yangon.jpg'
 import myanmarImage from '@/assets/myanmar.jpg'
+import shweImage from '@/assets/shwe.jpg'
 
 export const products: Product[] = [
   {
@@ -119,11 +120,11 @@ export const products: Product[] = [
     sku: "YGN-DT-VINYL-001",
     price: "25000",
     regular_price: "50000",
-    sale_price: "",
-    on_sale: false,
+    sale_price: "50000",
+    on_sale: true,
     stock_status: "instock",
     categories: [{ id: 1, name: "Vinyl", slug: "vinyl" }],
-    images: [{ id: 4, src: yangonImage, alt: "Yangon Downtown Wall Map" }],
+    images: [{ id: 4, src: shweImage, alt: "Shwe Map - Premium Vinyl Print - Yangon Downtown Area with Landmarks and Street Names - High Quality Map for Office or Home" }],
     attributes: [
       { id: 1, name: "Size", options: ["A1 (594×841mm)", "A0 (841×1189mm)", "Custom (1500×2000mm)"] },
       { id: 2, name: "Finish", options: ["Matte", "Glossy", "Satin"] },

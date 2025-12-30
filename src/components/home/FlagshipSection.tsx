@@ -12,9 +12,10 @@ export function FlagshipSection() {
 
   const features = [
     { icon: MapPin, text: t('flagship.townshipsCovered') },
-    { icon: BookOpen, text: t('flagship.indexedLocations') },
-    { icon: Shield, text: t('flagship.verifiedData') },
-    { icon: Star, text: t('flagship.starRating').replace('{rating}', flagshipProduct.average_rating) },
+    { icon: BookOpen, },
+    { icon: Shield,},
+    // { icon: Star, text: t('flagship.starRating').replace('{rating}', flagshipProduct.average_rating) },
+    { icon: Star, },
   ];
 
   return (

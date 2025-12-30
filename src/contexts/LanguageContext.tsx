@@ -21,10 +21,12 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.myanmarMap':'Myanmar Map',
     'nav.mandalayMap':'Mandalay Map',
     'nav.freeMapDownload':'Free Map Download',
+    'nav.naypyitawMap':'Naypyitaw Map',
     'nav.myanmarMapMain':'Myanmar Map Main',
     'nav.administrativeBoundaries':'Administrative Boundaries',
     'nav.districts':'Districts',
     'nav.townships':'Townships',
+    'nav.industrial':'Industrial Areas',
     
     // Header
     'header.search': 'Search',
@@ -59,7 +61,7 @@ const translations: Record<Language, Record<string, string>> = {
     'flagship.learnMore': 'Learn More',
     'flagship.viewAllBooks': 'View All Books',
     'flagship.basedOnReviews': 'Based on {count} reviews',
-    'flagship.townshipsCovered': '33 Townships Covered',
+    'flagship.townshipsCovered': '34 Townships Covered',
     'flagship.indexedLocations': '5,000+ Indexed Locations',
     'flagship.verifiedData': 'Verified Data Sources',
     'flagship.starRating': '{rating} Star Rating',
@@ -72,7 +74,7 @@ const translations: Record<Language, Record<string, string>> = {
     'trust.highQuality': 'High Quality Prints',
     'trust.highQualityDesc': 'Premium materials and printing techniques for maps that last for years.',
     'trust.fastShipping': 'Fast Shipping',
-    'trust.fastShippingDesc': 'Same-day dispatch for orders before 2 PM. Nationwide delivery within 3-5 days.',
+    'trust.fastShippingDesc': 'Delivery within 3 days if ordered within Yangon',
     'trust.satisfaction': 'Satisfaction Guaranteed',
     'trust.satisfactionDesc': "30-day money-back guarantee if you're not completely satisfied.",
     
@@ -82,7 +84,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // CTA Section
     'cta.label': 'Stay Updated',
-    'cta.title': 'Get 10% Off Your First Order',
+    'cta.title': 'Free Delivery for the first 30 map buyers (until January 15, 2026)',
     'cta.subtitle': 'Subscribe to our newsletter for exclusive offers, new product announcements, and cartography insights delivered to your inbox.',
     'cta.placeholder': 'Enter your email',
     'cta.button': 'Subscribe',
@@ -206,6 +208,13 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.yangonMap':'ရန်ကုန်မြေပုံများ',
     'nav.myanmarMap':'မြန်မာပြည်မြေပုံများ',
     'nav.mandalayMap':'မန္တလေးမြေပုံများ',
+     'nav.freeMapDownload':'အချိန်ပေါ်မြေပုံများ ဒေါင်းလုဒ်',
+    'nav.naypyitawMap':'နေပြည်တောင်မြေပုံ',
+    'nav.myanmarMapMain':'မြန်မာပြည်မြေပုံများ',
+    'nav.administrativeBoundaries':'အစိုးရအား မြေပုံများ',
+    'nav.districts':'ခရီးမြေပုံများ',
+    'nav.townships':'မြို့နယ်မြေပုံများ',
+    'nav.industrial':'industrial',
     
     
     // Header
@@ -240,7 +249,7 @@ const translations: Record<Language, Record<string, string>> = {
     'flagship.learnMore': 'ပိုမိုလေ့လာရန်',
     'flagship.viewAllBooks': 'စာအုပ်အားလုံး ကြည့်ရန်',
     'flagship.basedOnReviews': 'သုံးသပ်ချက် {count} ခုအပေါ် အခြေခံသည်',
-    'flagship.townshipsCovered': 'မြို့နယ် ၃၃ ခု ပါဝင်သည်',
+    'flagship.townshipsCovered': 'မြို့နယ် ၃၄ ခု ပါဝင်သည်',
     'flagship.indexedLocations': 'တည်နေရာ ၅၀၀၀+ ညွှန်းကိန်းပြုထားသည်',
     'flagship.verifiedData': 'အတည်ပြုထားသော ဒေတာအရင်းအမြစ်များ',
     'flagship.starRating': 'ကြယ်ပွင့် {rating} အဆင့်သတ်မှတ်ချက်',
@@ -253,7 +262,7 @@ const translations: Record<Language, Record<string, string>> = {
     'trust.highQuality': 'အရည်အသွေးမြင့် ပုံနှိပ်ခြင်း',
     'trust.highQualityDesc': 'နှစ်ပေါင်းများစွာ ခံနိုင်သော မြေပုံများအတွက် ပရီမီယံပစ္စည်းများနှင့် ပုံနှိပ်နည်းပညာများ။',
     'trust.fastShipping': 'မြန်ဆန်သော ပို့ဆောင်ရေး',
-    'trust.fastShippingDesc': 'မွန်းလွဲ ၂ နာရီမတိုင်မီ မှာယူမှုများအတွက် တစ်နေ့တည်း ပို့ဆောင်ပေးသည်။ တစ်နိုင်ငံလုံး ၃-၅ ရက်အတွင်း ပို့ဆောင်။',
+    'trust.fastShippingDesc': 'ရန်ကုန်မြို့တွင်း မှာယူပါက ၃ ရက်အတွင်း ပို့ဆောင်။',
     'trust.satisfaction': 'ကျေနပ်မှု အာမခံချက်',
     'trust.satisfactionDesc': 'လုံးဝ ကျေနပ်မှုမရှိပါက ၃၀ ရက်အတွင်း ငွေပြန်အမ်းပေးသည်။',
     
@@ -263,7 +272,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // CTA Section
     'cta.label': 'သတင်းအချက်အလက် ရယူပါ',
-    'cta.title': 'ပထမဆုံး အော်ဒါအတွက် ၁၀% လျှော့စျေးရယူပါ',
+    'cta.title': 'ပထမဆုံး မြေပုံဝယ်ယူသူ အယောက် 30 အတွက် Delivery Free ( 2026 ခုနစ် ၊ ဇန်နဝါရီလ ၁၅ ရက် အထိသာ )',
     'cta.subtitle': 'သီးသန့်အစီအစဉ်များ၊ ထုတ်ကုန်အသစ်ကြေညာချက်များနှင့် မြေပုံရေးဆွဲခြင်း ထိုးထွင်းသိမြင်မှုများအတွက် သတင်းလွှာ စာရင်းသွင်းပါ။',
     'cta.placeholder': 'သင့်အီးမေးလ်ထည့်ပါ',
     'cta.button': 'စာရင်းသွင်းရန်',
