@@ -75,12 +75,12 @@ export function HeroSection({ heroImage }: HeroSectionProps) {
             </div>
             <div className="h-6 w-px bg-primary-foreground/30" />
             <div className="flex items-center gap-2">
-              <span className="text-2xl font-bold text-primary-foreground">4.9</span>
+              <span className="text-2xl font-bold text-primary-foreground">3.8</span>
               <span className="text-sm">{t('hero.customerRating')}</span>
             </div>
             <div className="h-6 w-px bg-primary-foreground/30" />
             <div className="flex items-center gap-2">
-              <span className="text-2xl font-bold text-primary-foreground">33</span>
+              <span className="text-2xl font-bold text-primary-foreground">34</span>
               <span className="text-sm">{t('hero.townshipsCovered')}</span>
             </div>
           </div>

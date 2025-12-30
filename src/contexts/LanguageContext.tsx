@@ -208,7 +208,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.yangonMap':'ရန်ကုန်မြေပုံများ',
     'nav.myanmarMap':'မြန်မာပြည်မြေပုံများ',
     'nav.mandalayMap':'မန္တလေးမြေပုံများ',
-     'nav.freeMapDownload':'အချိန်ပေါ်မြေပုံများ ဒေါင်းလုဒ်',
+     'nav.freeMapDownload':'free မြေပုံများ ဒေါင်းလုဒ်',
     'nav.naypyitawMap':'နေပြည်တောင်မြေပုံ',
     'nav.myanmarMapMain':'မြန်မာပြည်မြေပုံများ',
     'nav.administrativeBoundaries':'အစိုးရအား မြေပုံများ',

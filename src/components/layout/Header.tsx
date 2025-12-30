@@ -7,6 +7,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { cn } from '@/lib/utils';
 import old from '@/assets/old.png'
+import logo from '@/assets/logo.png'
 
 
 interface HeaderProps {
@@ -99,7 +100,7 @@ export function Header({ onAuthClick }: HeaderProps) {
         <div className="container flex h-16 items-center justify-between md:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 transition-opacity hover:opacity-80">
-            <img src="https://www.dpsmap.com/assets/favicon/favicon-512x512.png" alt="Logo" className="h-16 w-16" />
+            <img src={logo} alt="Logo" className="h-16 w-16" />
             <div className="flex flex-col">
               <span className="font-display text-xl font-bold text-foreground">DPS Map</span>
               <span className="hidden text-xs text-muted-foreground sm:block">Precision Cartography</span>
@@ -111,7 +112,7 @@ export function Header({ onAuthClick }: HeaderProps) {
             {navLinks.map(link => (
               link.href === '/maps' ? (
                 <div key={link.href} className="relative" ref={dropdownRef}>
-                  <button
+                  {/* <button
                     onClick={() => setIsMapsDropdownOpen(!isMapsDropdownOpen)}
                     className={cn(
                       "flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors hover:text-primary",
@@ -122,7 +123,7 @@ export function Header({ onAuthClick }: HeaderProps) {
                   >
                     {link.label}
                     <ChevronDown className={`h-4 w-4 transition-transform ${isMapsDropdownOpen ? 'rotate-180' : ''}`} />
-                  </button>
+                  </button> */}
                   {isMapsDropdownOpen && (
                     <div 
                       className="absolute left-0 mt-1 w-48  border bg-popover p-2 shadow-lg z-50"
@@ -142,13 +143,13 @@ export function Header({ onAuthClick }: HeaderProps) {
                       >
                         {t('nav.home')}
                       </Link>
-                      <Link target="_blank"
+                      {/* <Link target="_blank"
                         to="https://dpsmap.com/pages/map-download/"
                         className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
                         onClick={() => setIsMapsDropdownOpen(false)}
                       >
                         {t('nav.freeMapDownload')}
-                      </Link>
+                      </Link> */}
                       <Link target="_blank"
                         to="https://dpsmap.com/mandalay/"
                         className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
