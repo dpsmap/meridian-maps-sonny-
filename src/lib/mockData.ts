@@ -63,6 +63,7 @@ export const categories: Category[] = [
   { id: 10, name: "A4 Book", slug: "a4-book", description: "A4 book format maps", count: 8 },
 ];
 import bookImage from '@/assets/book.png'
+// import yangonImage from '@/assets/yangon.png'
 
 export const products: Product[] = [
   {
@@ -86,8 +87,8 @@ export const products: Product[] = [
     short_description: "Complete township-level mapping of Yangon's 33 administrative divisions with verified data and precision cartography.",
     sku: "YCDC-TMB-001",
     price: "27000",
-    regular_price: "55000",
-    sale_price: "45000",
+    regular_price: "35000",
+    sale_price: "27000",
     on_sale: true,
     stock_status: "instock",
     categories: [{ id: 10, name: "A4 Book", slug: "a4-book" }],
@@ -115,13 +116,13 @@ export const products: Product[] = [
     description: "Large format wall map of Yangon's downtown area printed on premium weatherproof vinyl. Perfect for offices, businesses, and educational institutions.",
     short_description: "Premium vinyl wall map of downtown Yangon with detailed street names and landmarks.",
     sku: "YGN-DT-VINYL-001",
-    price: "85000",
-    regular_price: "85000",
+    price: "126000",
+    regular_price: "126000",
     sale_price: "",
     on_sale: false,
     stock_status: "instock",
     categories: [{ id: 1, name: "Vinyl", slug: "vinyl" }],
-    images: [{ id: 4, src: "/placeholder.svg", alt: "Yangon Downtown Wall Map" }],
+    images: [{ id: 4, src: bookImage, alt: "Yangon Downtown Wall Map" }],
     attributes: [
       { id: 1, name: "Size", options: ["A1 (594×841mm)", "A0 (841×1189mm)", "Custom (1500×2000mm)"] },
       { id: 2, name: "Finish", options: ["Matte", "Glossy", "Satin"] },
