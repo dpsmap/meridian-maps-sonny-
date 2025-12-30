@@ -20,11 +20,7 @@ export function TrustSection() {
       titleKey: 'trust.fastShipping',
       descKey: 'trust.fastShippingDesc',
     },
-    {
-      icon: CheckCircle,
-      titleKey: 'trust.satisfaction',
-      descKey: 'trust.satisfactionDesc',
-    },
+  
   ];
 
   return (

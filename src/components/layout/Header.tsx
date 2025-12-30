@@ -27,9 +27,9 @@ export function Header({ onAuthClick }: HeaderProps) {
     { href: '/', label: t('nav.home') },
     { href: '/maps', label: t('nav.map') },
     { href: '/products', label: t('nav.shop') },
-    { href: '/products?category=vinyl', label: t('nav.wallMaps') },
-    { href: '/products?category=a4-book', label: t('nav.mapBooks') },
-    { href: '/blog', label: t('nav.blog') },
+    // { href: '/products?category=vinyl', label: t('nav.wallMaps') },
+    // { href: '/products?category=a4-book', label: t('nav.mapBooks') },
+    { href: 'https://www.facebook.com/DPSMyanmar/', label: t('facebook'), target: '_blank' },
   ];
 
   const isActive = (href: string) => {
@@ -305,10 +305,10 @@ export function Header({ onAuthClick }: HeaderProps) {
           <div className="flex items-center gap-2">
             <LanguageSwitcher />
             
-            <Button variant="ghost" size="icon" className="hidden sm:flex">
+            {/* <Button variant="ghost" size="icon" className="hidden sm:flex">
               <Search className="h-5 w-5" />
               <span className="sr-only">{t('header.search')}</span>
-            </Button>
+            </Button> */}
 
             <Button 
               variant="ghost" 

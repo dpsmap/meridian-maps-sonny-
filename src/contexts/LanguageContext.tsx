@@ -246,7 +246,7 @@ const translations: Record<Language, Record<string, string>> = {
     'flagship.starRating': 'ကြယ်ပွင့် {rating} အဆင့်သတ်မှတ်ချက်',
     
     // Trust Section
-    'trust.title': 'DPS Map Shop ကို ဘာကြောင့် ရွေးချယ်သင့်သလဲ?',
+    'trust.title': 'DPS Map ကို ဘာကြောင့် ရွေးချယ်သင့်သလဲ?',
     'trust.subtitle': 'မြန်မာတစ်နိုင်ငံလုံးရှိ ပညာရှင်များ၊ ပညာရေးသမားများနှင့် မြေပုံဝါသနာရှင်များ ယုံကြည်စိတ်ချရသော',
     'trust.verifiedData': 'အတည်ပြုထားသော ဒေတာ',
     'trust.verifiedDataDesc': 'မြေပုံအားလုံးသည် အစိုးရဒေတာအရင်းအမြစ်များကို အသုံးပြုပြီး တိကျမှုအတွက် ပုံမှန်မွမ်းမံထားသည်။',
