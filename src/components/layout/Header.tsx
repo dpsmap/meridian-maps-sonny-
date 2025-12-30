@@ -136,18 +136,144 @@ export function Header({ onAuthClick }: HeaderProps) {
                         {t('nav.yangonMap')}
                       </Link>
                       <Link target="_blank"
+                        to="https://dpsmap.com/"
+                        className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
+                        onClick={() => setIsMapsDropdownOpen(false)}
+                      >
+                        {t('nav.home')}
+                      </Link>
+                      <Link target="_blank"
+                        to="https://dpsmap.com/pages/map-download/"
+                        className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
+                        onClick={() => setIsMapsDropdownOpen(false)}
+                      >
+                        {t('nav.freeMapDownload')}
+                      </Link>
+                      <Link target="_blank"
+                        to="https://dpsmap.com/mandalay/"
+                        className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
+                        onClick={() => setIsMapsDropdownOpen(false)}
+                      >
+                        {t('nav.mandalayMap')}
+                      </Link>
+                      <Link target="_blank"
                         to="https://dpsmap.com/myanmar/index.shtml"
                         className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
                         onClick={() => setIsMapsDropdownOpen(false)}
                       >
                         {t('nav.myanmarMap')}
                       </Link>
-                       <Link target="_blank"
-                        to="https://dpsmap.com/mandalay/"
+                      <Link target="_blank"
+                        to="https://dpsmap.com/myanmar/"
                         className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
                         onClick={() => setIsMapsDropdownOpen(false)}
                       >
-                        {t('nav.mandalayMap')}
+                        {t('nav.myanmarMapMain')}
+                      </Link>
+                      <Link target="_blank"
+                        to="https://dpsmap.com/naypyitaw/"
+                        className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
+                        onClick={() => setIsMapsDropdownOpen(false)}
+                      >
+                        {t('nav.naypyitawMap')}
+                      </Link>
+                      <Link target="_blank"
+                        to="https://dpsmap.com/administrative-boundaries/"
+                        className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
+                        onClick={() => setIsMapsDropdownOpen(false)}
+                      >
+                        {t('nav.administrativeBoundaries')}
+                      </Link>
+                      <Link target="_blank"
+                        to="https://dpsmap.com/districts/"
+                        className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
+                        onClick={() => setIsMapsDropdownOpen(false)}
+                      >
+                        {t('nav.districts')}
+                      </Link>
+                      <Link target="_blank"
+                        to="https://dpsmap.com/industrial/"
+                        className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
+                        onClick={() => setIsMapsDropdownOpen(false)}
+                      >
+                        {t('nav.industrial')}
+                      </Link>
+                      <Link target="_blank"
+                        to="https://dpsmap.com/onlinemapshop/"
+                        className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
+                        onClick={() => setIsMapsDropdownOpen(false)}
+                      >
+                        {t('nav.onlineMapShop')}
+                      </Link>
+                      <Link target="_blank"
+                        to="https://dpsmap.com/yangon/eomap/"
+                        className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
+                        onClick={() => setIsMapsDropdownOpen(false)}
+                      >
+                        {t('nav.ympEoMap')}
+                      </Link>
+                      <Link target="_blank"
+                        to="https://dpsmap.com/bago/"
+                        className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
+                        onClick={() => setIsMapsDropdownOpen(false)}
+                      >
+                        {t('nav.bagoMap')}
+                      </Link>
+                      <Link target="_blank"
+                        to="https://dpsmap.com/downloadmap/kachin.html"
+                        className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
+                        onClick={() => setIsMapsDropdownOpen(false)}
+                      >
+                        {t('nav.kachinMapDownload')}
+                      </Link>
+                      <Link target="_blank"
+                        to="https://dpsmap.com/gis/"
+                        className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
+                        onClick={() => setIsMapsDropdownOpen(false)}
+                      >
+                        {t('nav.gis')}
+                      </Link>
+                      <Link target="_blank"
+                        to="https://dpsmap.com/inlay/"
+                        className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
+                        onClick={() => setIsMapsDropdownOpen(false)}
+                      >
+                        {t('nav.inlayMap')}
+                      </Link>
+                      <Link target="_blank"
+                        to="https://dpsmap.com/jobs/"
+                        className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
+                        onClick={() => setIsMapsDropdownOpen(false)}
+                      >
+                        {t('nav.jobs')}
+                      </Link>
+                      <Link target="_blank"
+                        to="https://dpsmap.com/magway/"
+                        className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
+                        onClick={() => setIsMapsDropdownOpen(false)}
+                      >
+                        {t('nav.magwayMap')}
+                      </Link>
+                      <Link target="_blank"
+                        to="https://dpsmap.com/mapplotting.php"
+                        className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
+                        onClick={() => setIsMapsDropdownOpen(false)}
+                      >
+                        {t('nav.mapPlottingServices')}
+                      </Link>
+                      <Link target="_blank"
+                        to="https://dpsmap.com/pyinmana/pyinmana.shtml"
+                        className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
+                        onClick={() => setIsMapsDropdownOpen(false)}
+                      >
+                        {t('nav.pyinmanaMap')}
+                      </Link>
+                      <Link target="_blank"
+                        to="https://dpsmap.com/sagaing/"
+                        className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
+                        onClick={() => setIsMapsDropdownOpen(false)}
+                      >
+                        {t('nav.sagaingMap')}
                       </Link>
                     </div>
                   )}
