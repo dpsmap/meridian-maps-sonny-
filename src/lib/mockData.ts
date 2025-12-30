@@ -63,7 +63,8 @@ export const categories: Category[] = [
   { id: 10, name: "A4 Book", slug: "a4-book", description: "A4 book format maps", count: 8 },
 ];
 import bookImage from '@/assets/book.png'
-// import yangonImage from '@/assets/yangon.png'
+import yangonImage from '@/assets/yangon.jpg'
+import myanmarImage from '@/assets/myanmar.jpg'
 
 export const products: Product[] = [
   {
@@ -106,7 +107,7 @@ export const products: Product[] = [
   },
   {
     id: 2,
-    name: "Yangon Downtown Wall Map - Premium Vinyl",
+    name: "Yangon Downtown Map Plotting vinyl 3' x 4' - Premium Quality",
     slug: "yangon-downtown-wall-map-vinyl",
     permalink: "/product/yangon-downtown-wall-map-vinyl",
     date_created: "2024-02-10",
@@ -116,13 +117,13 @@ export const products: Product[] = [
     description: "Large format wall map of Yangon's downtown area printed on premium weatherproof vinyl. Perfect for offices, businesses, and educational institutions.",
     short_description: "Premium vinyl wall map of downtown Yangon with detailed street names and landmarks.",
     sku: "YGN-DT-VINYL-001",
-    price: "126000",
-    regular_price: "126000",
+    price: "156000",
+    regular_price: "156000",
     sale_price: "",
     on_sale: false,
     stock_status: "instock",
     categories: [{ id: 1, name: "Vinyl", slug: "vinyl" }],
-    images: [{ id: 4, src: bookImage, alt: "Yangon Downtown Wall Map" }],
+    images: [{ id: 4, src: yangonImage, alt: "Yangon Downtown Wall Map" }],
     attributes: [
       { id: 1, name: "Size", options: ["A1 (594×841mm)", "A0 (841×1189mm)", "Custom (1500×2000mm)"] },
       { id: 2, name: "Finish", options: ["Matte", "Glossy", "Satin"] },
@@ -155,26 +156,25 @@ export const products: Product[] = [
   },
   {
     id: 4,
-    name: "Mandalay City Center Canvas Print",
-    slug: "mandalay-city-center-canvas",
-    permalink: "/product/mandalay-city-center-canvas",
+    name: "Myanmar Map (Myanmar Map Soft Copy PDF Print)",
+    slug: "myanmar-soft-copy-pdf",
+    permalink: "/product/myanmar-soft-copy-pdf",
     date_created: "2024-03-01",
-    type: "variable",
+    type: "simple",
     status: "publish",
     featured: true,
-    description: "Gallery-quality canvas print of Mandalay's city center. Stretched on wooden frame, ready to hang. A beautiful blend of cartographic precision and artistic presentation.",
-    short_description: "Artistic canvas map of Mandalay city center, ready to hang.",
-    sku: "MDY-CANVAS-001",
+    description: "Digital PDF version of the complete Myanmar map. Perfect for printing or digital use.",
+    short_description: "Digital PDF map of Myanmar for printing or digital use.",
+    sku: "MM-PDF-001",
     price: "125000",
     regular_price: "150000",
     sale_price: "125000",
     on_sale: true,
     stock_status: "instock",
-    categories: [{ id: 6, name: "Canvas", slug: "canvas" }],
-    images: [{ id: 6, src: "/placeholder.svg", alt: "Mandalay Canvas Map" }],
+    categories: [{ id: 6, name: "Digital", slug: "digital" }],
+    images: [{ id: 6, src: myanmarImage, alt: "Myanmar PDF Map" }],
     attributes: [
-      { id: 1, name: "Size", options: ["60×80cm", "80×100cm", "100×120cm"] },
-      { id: 2, name: "Frame", options: ["Black", "Natural Wood", "White"] },
+      { id: 1, name: "Format", options: ["PDF", "High Res PNG", "JPEG"] },
     ],
     average_rating: "5.0",
     rating_count: 23,
