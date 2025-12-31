@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { ProductCard } from '@/components/products/ProductCard';
-import { products } from '@/lib/mockData';
+import { BestSellingProductCard } from '@/components/products/BestSellingProductCard';
+import { products } from '@/lib/mockData';  
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export function BestsellersSection() {
@@ -41,7 +41,7 @@ export function BestsellersSection() {
               className="animate-slide-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <ProductCard product={product} />
+              <BestSellingProductCard product={product} />
             </div>
           ))}
         </div>

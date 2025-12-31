@@ -46,11 +46,11 @@ export function ProductFilters({
 
   const clearFilters = () => {
     onCategoryChange(null);
-    onPriceChange([0, 200000]);
+    onPriceChange([0, 500000]);
     onMaterialsChange([]);
   };
 
-  const hasActiveFilters = selectedCategory || priceRange[0] > 0 || priceRange[1] < 200000 || selectedMaterials.length > 0;
+  const hasActiveFilters = selectedCategory || priceRange[0] > 0 || priceRange[1] < 500000 || selectedMaterials.length > 0;
 
   const FilterContent = () => (
     <div className="space-y-6">
@@ -109,7 +109,7 @@ export function ProductFilters({
               value={priceRange}
               onValueChange={(value) => onPriceChange(value as [number, number])}
               min={0}
-              max={200000}
+              max={500000}
               step={5000}
               className="w-full"
             />

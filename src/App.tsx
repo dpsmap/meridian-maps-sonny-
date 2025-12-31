@@ -11,6 +11,7 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { CartDrawer } from '@/components/cart/CartDrawer';
 import { AuthModal } from '@/components/auth/AuthModal';
+import { ScrollToTop } from '@/components/layout/ScrollToTop';
 import Index from './pages/Index';
 import Products from './pages/Products';
 import ProductDetail from './pages/ProductDetail';
@@ -35,6 +36,7 @@ const App = () => {
             <Toaster />
             <Sonner />
             <BrowserRouter>
+              <ScrollToTop />
               <div className="flex min-h-screen flex-col">
                 <Header onAuthClick={() => setIsAuthModalOpen(true)} />
                 <div className="flex-1">

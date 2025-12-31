@@ -46,7 +46,7 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.viewCollection': 'Buy Now',
     'hero.mapsSold': 'Maps Sold',
     'hero.customerRating': 'Customer Rating',
-    'hero.townshipsCovered': 'Townships Covered',
+    'hero.townshipsCovered': 'Yangon Townships Covered',
     'hero.scroll': 'Scroll',
     
     // Bestsellers Section
@@ -191,6 +191,10 @@ const translations: Record<Language, Record<string, string>> = {
     'checkout.cod': 'Cash on Delivery',
     'checkout.bankTransfer': 'Bank Transfer',
     'checkout.mobilePay': 'Mobile Payment',
+
+    'faq.title':'Frequently Asked Questions',
+    'faq.subtitle':'Frequently Asked Questions',
+    'faq.label':'FAQ',
     
     // Blog
     'blog.title': 'Blog',
@@ -215,6 +219,11 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.districts':'ခရီးမြေပုံများ',
     'nav.townships':'မြို့နယ်မြေပုံများ',
     'nav.industrial':'industrial',
+
+    //faq
+    'faq.title':'Frequently Asked Questions',
+    'faq.subtitle':'Frequently Asked Questions',
+    'faq.label':'FAQ',
     
     
     // Header
@@ -234,7 +243,7 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.viewCollection': 'ဆိုင်ကိုကြည့်ပါ',
     'hero.mapsSold': 'ရောင်းချပြီး မြေပုံများ',
     'hero.customerRating': 'ဖောက်သည်အဆင့်သတ်မှတ်ချက်',
-    'hero.townshipsCovered': 'မြို့နယ်များ ပါဝင်သည်',
+    'hero.townshipsCovered': 'ရန်ကုန် မြို့နယ်များ ပါဝင်သည်',
     'hero.scroll': 'ဆင်းကြည့်ရန်',
     
     // Bestsellers Section
@@ -256,7 +265,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Trust Section
     'trust.title': 'DPS Map ကို ဘာကြောင့် ရွေးချယ်သင့်သလဲ?',
-    'trust.subtitle': 'မြန်မာတစ်နိုင်ငံလုံးရှိ ပညာရှင်များ၊ ပညာရေးသမားများနှင့် မြေပုံဝါသနာရှင်များ ယုံကြည်စိတ်ချရသော',
+    'trust.subtitle': 'မြန်မာတစ်နိုင်ငံလုံးရှိ ပညာရှင်များ၊ ပညာရေးသမားများနှင့် မြေပုံဝါသနာရှင်များ ယုံကြည်စိတ်ချရစွာသုံးစွဲသောကြောင့် ',
     'trust.verifiedData': 'အတည်ပြုထားသော ဒေတာ',
     'trust.verifiedDataDesc': 'မြေပုံအားလုံးသည် အစိုးရဒေတာအရင်းအမြစ်များကို အသုံးပြုပြီး တိကျမှုအတွက် ပုံမှန်မွမ်းမံထားသည်။',
     'trust.highQuality': 'အရည်အသွေးမြင့် ပုံနှိပ်ခြင်း',

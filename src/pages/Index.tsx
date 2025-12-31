@@ -4,6 +4,7 @@ import { BestsellersSection } from '@/components/home/BestsellersSection';
 import { FlagshipSection } from '@/components/home/FlagshipSection';
 import { TrustSection } from '@/components/home/TrustSection';
 import { TestimonialsSection } from '@/components/home/TestimonialsSection';
+import { FAQSection } from '@/components/home/FAQSection';
 import { CTASection } from '@/components/home/CTASection';
 
 interface IndexProps {
@@ -30,6 +31,7 @@ export default function Index({ heroImage }: IndexProps) {
         <TrustSection />
         <TestimonialsSection />
         <CTASection />
+        <FAQSection />
       </main>
     </>
   );

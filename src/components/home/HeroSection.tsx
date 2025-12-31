@@ -39,9 +39,12 @@ export function HeroSection({ heroImage }: HeroSectionProps) {
 
           {/* Headline */}
           <h1  className="font-display text-4xl font-bold leading-tight text-primary-foreground sm:text-5xl md:text-6xl animate-slide-up" style={{ animationDelay: '0.1s', lineHeight: '90px', }}>
-         <Link to="https://dpsmap.com/yangon" target='_blank' style={{textDecoration:'underline'}}>{t('hero.ygn')}</Link>
-         <Link to="https://dpsmap.com/myanmar" target='_blank' style={{textDecoration:'underline'}}>{t('hero.mm')}</Link>
-         
+                <Link className=' inline-block' to="https://dpsmap.com/yangon" target='_blank' style={{color:'black',textShadow:'1px 2px hsl(var(--terracotta-light))'}}>
+          {t('hero.ygn')}
+        </Link>
+        <Link className=' inline-block' to="https://dpsmap.com/myanmar" target='_blank' style={{color:'black',textShadow:'1px 2px hsl(var(--terracotta-light))'}}>
+          {t('hero.mm')}
+        </Link>
            {t('hero.title')}
           <br />
             <span className="text-terracotta-light">{t('hero.titleHighlight')}</span>
@@ -80,7 +83,7 @@ export function HeroSection({ heroImage }: HeroSectionProps) {
             </div>
             <div className="h-6 w-px bg-primary-foreground/30" />
             <div className="flex items-center gap-2">
-              <span className="text-2xl font-bold text-primary-foreground">34</span>
+              <span className="text-2xl font-bold text-primary-foreground"> 34</span>
               <span className="text-sm">{t('hero.townshipsCovered')}</span>
             </div>
           </div>
@@ -88,7 +91,7 @@ export function HeroSection({ heroImage }: HeroSectionProps) {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 ">
         <div className="flex flex-col items-center gap-2 text-primary-foreground/60">
           <span className="text-xs uppercase tracking-wider">{t('hero.scroll')}</span>
           <div className="h-8 w-0.5 bg-primary-foreground/30" />

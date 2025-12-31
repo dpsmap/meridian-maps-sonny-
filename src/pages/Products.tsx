@@ -15,7 +15,7 @@ export default function Products() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [sortBy, setSortBy] = useState<SortOption>('featured');
-  const [priceRange, setPriceRange] = useState<[number, number]>([0, 200000]);
+  const [priceRange, setPriceRange] = useState<[number, number]>([0, 500000]);
   const [selectedMaterials, setSelectedMaterials] = useState<string[]>([]);
 
   const selectedCategory = searchParams.get('category');

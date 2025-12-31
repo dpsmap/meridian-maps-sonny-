@@ -92,9 +92,11 @@ export function FlagshipSection() {
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" asChild>
+              {
+              /* <Button size="lg" variant="outline" asChild>
                 <Link to="/products?category=a4-book">{t('flagship.viewAllBooks')}</Link>
-              </Button>
+              </Button> */
+              }
             </div>
           </div>
         </div>
