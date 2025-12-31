@@ -39,10 +39,12 @@ export function HeroSection({ heroImage }: HeroSectionProps) {
 
           {/* Headline */}
           <h1  className="font-display text-4xl font-bold leading-tight text-primary-foreground sm:text-5xl md:text-6xl animate-slide-up" style={{ animationDelay: '0.1s', lineHeight: '90px', }}>
-                <Link className=' inline-block' to="https://dpsmap.com/yangon" target='_blank' style={{color:'black',textShadow:'1px 2px hsl(var(--terracotta-light))'}}>
+                <Link className=' inline-block' to="https://dpsmap.com/yangon" target='_blank' >
           {t('hero.ygn')}
         </Link>
-        <Link className=' inline-block' to="https://dpsmap.com/myanmar" target='_blank' style={{color:'black',textShadow:'1px 2px hsl(var(--terracotta-light))'}}>
+        <Link className=' inline-block' to="https://dpsmap.com/myanmar" target='_blank'
+        //  style={{color:'black',textShadow:'1px 2px hsl(var(--terracotta-light))'}}
+         >
           {t('hero.mm')}
         </Link>
            {t('hero.title')}
