@@ -14,7 +14,7 @@ export default function Index({ heroImage }: IndexProps) {
   return (
     <>
       <Helmet>
-        <title>DPS Map Shop - Premium Yangon Maps & Custom Map Prints</title>
+        <title>DPSMAP</title>
         <meta 
           name="description" 
           content="Explore our collection of high-quality Yangon maps, Township Map Books, and custom map prints. Precision cartography trusted by professionals across Myanmar." 

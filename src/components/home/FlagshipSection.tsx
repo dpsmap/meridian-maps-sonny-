@@ -28,7 +28,7 @@ export function FlagshipSection() {
               <img
                 src={bookImage}
                 alt={bookImage}
-                className="h-full w-full object-cover"
+                className="h-full w-full object-fill"
               />
             </div>
             {/* Floating Badge */}
@@ -42,7 +42,7 @@ export function FlagshipSection() {
               </div>
             </div>
             {/* Decorative Element */}
-            <div className="absolute -left-4 -top-4 h-24 w-24 rounded-full border-2 border-primary/20" />
+            {/* <div className="absolute -left-4 -top-4 h-24 w-24 rounded-full border-2 border-primary/20" /> */}
           </div>
 
           {/* Content Side */}
