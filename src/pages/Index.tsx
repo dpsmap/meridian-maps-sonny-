@@ -1,5 +1,14 @@
+import { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { HeroSection } from '@/components/home/HeroSection';
+
+declare global {
+  interface Window {
+    sc_project: number;
+    sc_invisible: number;
+    sc_security: string;
+  }
+}
 import { BestsellersSection } from '@/components/home/BestsellersSection';
 import { FlagshipSection } from '@/components/home/FlagshipSection';
 import { TrustSection } from '@/components/home/TrustSection';
@@ -12,6 +21,28 @@ interface IndexProps {
 }
 
 export default function Index({ heroImage }: IndexProps) {
+  
+  // StatCounter Code Injection
+  useEffect(() => {
+    // StatCounter Configuration
+    window.sc_project = 310175;
+    window.sc_invisible = 0;
+    window.sc_security = "df515d3d";
+
+    // Create Script Element
+    const script = document.createElement('script');
+    script.src = "https://www.statcounter.com/counter/counter.js";
+    script.async = true;
+
+    // Append to body
+    document.body.appendChild(script);
+
+    // Cleanup when component unmounts
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <>
       <Helmet>
