@@ -38,11 +38,11 @@ export function HeroSection({ heroImage }: HeroSectionProps) {
           </div>
 
           {/* Headline */}
-          <h1  className="font-display text-4xl font-bold leading-tight text-primary-foreground sm:text-5xl md:text-6xl animate-slide-up" style={{ animationDelay: '0.1s', lineHeight: '90px', }}>
-                <Link className=' inline-block' to="https://dpsmap.com/yangon" target='_blank' >
+          <h1  className=" font-display text-4xl font-bold leading-tight text-primary-foreground sm:text-5xl md:text-6xl animate-slide-up" style={{ animationDelay: '0.1s', lineHeight: '90px', }}>
+                <Link className='animate-bounce inline-block' to="https://dpsmap.com/yangon" target='_blank' >
           {t('hero.ygn')}
         </Link>
-        <Link className=' inline-block' to="https://dpsmap.com/myanmar" target='_blank'
+        <Link className='animate-bounce inline-block' to="https://dpsmap.com/myanmar" target='_blank'
         //  style={{color:'black',textShadow:'1px 2px hsl(var(--terracotta-light))'}}
          >
           {t('hero.mm')}
@@ -56,9 +56,22 @@ export function HeroSection({ heroImage }: HeroSectionProps) {
           <p className="mt-6 text-lg text-primary-foreground/80 max-w-xl animate-slide-up" style={{ animationDelay: '0.2s' }}>
             {t('hero.subtitle')}
           </p>
+          <div>
            <p className="mt-6 text-lg text-primary-foreground/80 max-w-xl animate-slide-up" style={{ animationDelay: '0.2s' }}>
-            {t('hero.socialMarketing')}
+            {t('hero.socialMarketing')} 
+            <br />
+            {/* <div style={{backgroundColor:'#0000003d',padding:'10px'}}> */}
+              <br />   Ph -  <a href="tel:+959775204020" style={{textShadow:'1px 1px black'}}>09775204020</a>
+             {/* <a href="tel:+959774204020" style={{textShadow:'1px 1px black'}}>09774204020</a>  */}
+            <br />
+            Viber - <a href="viber://chat?number=09775294020" style={{textShadow:'1px 1px black'}}>09775204020</a> 
+            <br />
+            Facebook Page - <a href="https://www.facebook.com/DPSMyanmar" target="_blank" style={{textShadow:'1px 1px black'}}>https://www.facebook.com/DPSMyanmar
+   {/* <img src="facebook-icon.png" alt="Facebook" style="width:40px; height:40px;" /> */}
+              </a>
+            {/* </div> */}
           </p>
+          </div>
 
           {/* CTA Buttons */}
           <div className="mt-8 flex flex-wrap gap-4 animate-slide-up" style={{ animationDelay: '0.3s' }}>

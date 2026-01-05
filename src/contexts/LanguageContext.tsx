@@ -17,27 +17,27 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.mapBooks': 'Map Books',
     'nav.map': 'Maps',
     'nav.blog': 'Blog',
-    'nav.yangonMap':'Yangon Map',
-    'nav.myanmarMap':'Myanmar Map',
-    'nav.mandalayMap':'Mandalay Map',
-    'nav.freeMapDownload':'Free Map Download',
-    'nav.naypyitawMap':'Naypyitaw Map',
-    'nav.myanmarMapMain':'Myanmar Map Main',
-    'nav.administrativeBoundaries':'Administrative Boundaries',
-    'nav.districts':'Districts',
-    'nav.townships':'Townships',
-    'nav.industrial':'Industrial Areas',
-    
+    'nav.yangonMap': 'Yangon Map',
+    'nav.myanmarMap': 'Myanmar Map',
+    'nav.mandalayMap': 'Mandalay Map',
+    'nav.freeMapDownload': 'Free Map Download',
+    'nav.naypyitawMap': 'Naypyitaw Map',
+    'nav.myanmarMapMain': 'Myanmar Map Main',
+    'nav.administrativeBoundaries': 'Administrative Boundaries',
+    'nav.districts': 'Districts',
+    'nav.townships': 'Townships',
+    'nav.industrial': 'Industrial Areas',
+
     // Header
     'header.search': 'Search',
     'header.account': 'Account',
     'header.cart': 'Cart',
     'header.menu': 'Menu',
-    
+
     // Hero Section
     'hero.badge': 'Precision Cartography Since 1995',
     'hero.title': ' Maps at a Special Price',
-    'hero.mm':' and Myanmar',
+    'hero.mm': ' and Myanmar',
     'hero.ygn': 'Get Yangon',
     'hero.titleHighlight': '(Half Price) (Only for 7 weeks) within 2026 Jan 15',
     'hero.subtitle': 'Discover our collection of high-quality Yangon maps, custom map prints, and the definitive Township Map Book. Trusted by professionals across Myanmar.',
@@ -48,13 +48,13 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.customerRating': 'Customer Rating',
     'hero.townshipsCovered': 'Yangon Townships Covered',
     'hero.scroll': 'Scroll',
-    
+
     // Bestsellers Section
     'bestsellers.label': 'Most Popular',
     'bestsellers.title': 'Bestselling Maps',
     'bestsellers.subtitle': 'Our most loved products, trusted by urban planners, businesses, and map enthusiasts across Myanmar.',
     'bestsellers.viewAll': 'View All Products',
-    
+
     // Flagship Section
     'flagship.badge': 'Flagship Product',
     'flagship.specialPrice': 'Special Price',
@@ -65,7 +65,7 @@ const translations: Record<Language, Record<string, string>> = {
     'flagship.indexedLocations': '5,000+ Indexed Locations',
     'flagship.verifiedData': 'Verified Data Sources',
     'flagship.starRating': '{rating} Star Rating',
-    
+
     // Trust Section
     'trust.title': 'Why Choose DPS Map Shop?',
     'trust.subtitle': 'Trusted by professionals, educators, and map enthusiasts across Myanmar',
@@ -77,11 +77,11 @@ const translations: Record<Language, Record<string, string>> = {
     'trust.fastShippingDesc': 'Delivery within 3 days if ordered within Yangon',
     'trust.satisfaction': 'Satisfaction Guaranteed',
     'trust.satisfactionDesc': "30-day money-back guarantee if you're not completely satisfied.",
-    
+
     // Testimonials Section
     'testimonials.label': 'Testimonials',
     'testimonials.title': 'What Our Customers Say',
-    
+
     // CTA Section
     'cta.label': 'Stay Updated',
     'cta.title': 'Free Delivery for the first 30 map buyers (until January 15, 2026)',
@@ -92,7 +92,7 @@ const translations: Record<Language, Record<string, string>> = {
     'cta.browseAll': 'Browse All Maps',
     'cta.wallMaps': 'Wall Maps',
     'cta.mapBooks': 'Map Books',
-    
+
     // Footer
     'footer.description': 'Your trusted source for high-quality Yangon maps and custom map prints. Precision cartography since 2015.',
     'footer.shop': 'Shop',
@@ -111,12 +111,12 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.rights': 'All rights reserved.',
     'footer.privacy': 'Privacy Policy',
     'footer.terms': 'Terms of Service',
-    
+
     // Product Card
     'product.sale': 'Sale',
     'product.featured': 'Featured',
     'product.addToCart': 'Add to Cart',
-    
+
     // Cart Drawer
     'cart.title': 'Your Cart',
     'cart.empty': 'Your cart is empty',
@@ -126,7 +126,7 @@ const translations: Record<Language, Record<string, string>> = {
     'cart.shippingNote': 'Shipping calculated at checkout',
     'cart.checkout': 'Proceed to Checkout',
     'cart.continueShopping': 'Continue Shopping',
-    
+
     // Auth Modal
     'auth.login': 'Login',
     'auth.signup': 'Sign Up',
@@ -140,7 +140,7 @@ const translations: Record<Language, Record<string, string>> = {
     'auth.orContinue': 'Or continue with',
     'auth.google': 'Google',
     'auth.facebook': 'Facebook',
-    
+
     // Products Page
     'products.title': 'All Maps',
     'products.searchPlaceholder': 'Search maps...',
@@ -153,7 +153,7 @@ const translations: Record<Language, Record<string, string>> = {
     'products.showing': 'Showing {count} products',
     'products.noProducts': 'No products found',
     'products.clearFilters': 'Clear Filters',
-    
+
     // Filter Labels
     'filter.category': 'Category',
     'filter.priceRange': 'Price Range',
@@ -161,7 +161,7 @@ const translations: Record<Language, Record<string, string>> = {
     'filter.allCategories': 'All Categories',
     'filter.apply': 'Apply Filters',
     'filter.reset': 'Reset',
-    
+
     // Product Detail
     'productDetail.description': 'Description',
     'productDetail.shipping': 'Shipping Info',
@@ -173,7 +173,7 @@ const translations: Record<Language, Record<string, string>> = {
     'productDetail.outOfStock': 'Out of Stock',
     'productDetail.relatedProducts': 'Related Products',
     'productDetail.frequentlyBought': 'Frequently Bought Together',
-    
+
     // Checkout
     'checkout.title': 'Checkout',
     'checkout.contact': 'Contact Information',
@@ -192,10 +192,10 @@ const translations: Record<Language, Record<string, string>> = {
     'checkout.bankTransfer': 'Bank Transfer',
     'checkout.mobilePay': 'Mobile Payment',
 
-    'faq.title':'Frequently Asked Questions',
-    'faq.subtitle':'Frequently Asked Questions',
-    'faq.label':'FAQ',
-    
+    'faq.title': 'Frequently Asked Questions',
+    'faq.subtitle': 'Frequently Asked Questions',
+    'faq.label': 'FAQ',
+
     // Blog
     'blog.title': 'Blog',
     'blog.subtitle': 'Insights, updates, and stories from the world of cartography',
@@ -208,54 +208,52 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.wallMaps': 'နံရံမြေပုံများ',
     'nav.mapBooks': 'မြေပုံစာအုပ်များ',
     'nav.blog': 'ဘလော့ဂ်',
-    'nav.map':'မြေပုံများ',
-    'nav.yangonMap':'ရန်ကုန်မြေပုံများ',
-    'nav.myanmarMap':'မြန်မာပြည်မြေပုံများ',
-    'nav.mandalayMap':'မန္တလေးမြေပုံများ',
-     'nav.freeMapDownload':'free မြေပုံများ ဒေါင်းလုဒ်',
-    'nav.naypyitawMap':'နေပြည်တောင်မြေပုံ',
-    'nav.myanmarMapMain':'မြန်မာပြည်မြေပုံများ',
-    'nav.administrativeBoundaries':'အစိုးရအား မြေပုံများ',
-    'nav.districts':'ခရီးမြေပုံများ',
-    'nav.townships':'မြို့နယ်မြေပုံများ',
-    'nav.industrial':'industrial',
+    'nav.map': 'မြေပုံများ',
+    'nav.yangonMap': 'ရန်ကုန်မြေပုံများ',
+    'nav.myanmarMap': 'မြန်မာပြည်မြေပုံများ',
+    'nav.mandalayMap': 'မန္တလေးမြေပုံများ',
+    'nav.freeMapDownload': 'free မြေပုံများ ဒေါင်းလုဒ်',
+    'nav.naypyitawMap': 'နေပြည်တောင်မြေပုံ',
+    'nav.myanmarMapMain': 'မြန်မာပြည်မြေပုံများ',
+    'nav.administrativeBoundaries': 'အစိုးရအား မြေပုံများ',
+    'nav.districts': 'ခရီးမြေပုံများ',
+    'nav.townships': 'မြို့နယ်မြေပုံများ',
+    'nav.industrial': 'industrial',
 
     //faq
-    'faq.title':'Frequently Asked Questions',
-    'faq.subtitle':'Frequently Asked Questions',
-    'faq.label':'FAQ',
-    
-    
+    'faq.title': 'Frequently Asked Questions',
+    'faq.subtitle': 'Frequently Asked Questions',
+    'faq.label': 'FAQ',
+
+
     // Header
     'header.search': 'ရှာဖွေရန်',
     'header.account': 'အကောင့်',
     'header.cart': 'ဈေးခြင်း',
     'header.menu': 'မီနူး',
-    
+
     // Hero Section
     'hero.badge': '၁၉၉၅ ခုနှစ်မှစ၍ တိကျသော မြေပုံရေးဆွဲခြင်း',
     'hero.title': 'မြေပုံများ အထူးဈေးနှုန်း  ',
-    'hero.mm':'နှင့် မြန်မာပြည်',
+    'hero.mm': 'နှင့် မြန်မာပြည်',
     'hero.ygn': 'ရန်ကုန်   ',
     'hero.titleHighlight': '( 50% လျော့ဈေး ) ဖြင့် ရယူလိုက်ပါ ( 2026 Jan 15 အထိသာ)',
     'hero.subtitle': 'အရည်အသွေးမြင့် ရန်ကုန်မြေပုံများ၊ စိတ်ကြိုက်မြေပုံပုံနှိပ်ခြင်းများနှင့် မြို့နယ်မြေပုံစာအုပ် စုဆောင်းမှုကို ရှာဖွေပါ။ မြန်မာတစ်နိုင်ငံလုံးရှိ ပညာရှင်များ ယုံကြည်စိတ်ချရသောမြေပုံ၀န်ဆောင်မှု။',
     'hero.shopNow': 'ယခုဝယ်ရန်',
-    'hero.socialMarketing': `မြေပုံ များ ဝယ်ယူလိုပါက 
-ph - 09775204020 , 09774204020
-email - 
-viber - မှ ဆက်သွယ်ဝယ်ယူနိင်ပါသည်`,
+    'hero.socialMarketing': `မြေပုံ များ ဝယ်ယူလိုပါက`,
+    // 'hero.ph': '09775204020 , 09774204020',
     'hero.viewCollection': 'ဆိုင်ကိုကြည့်ပါ',
     'hero.mapsSold': 'ရောင်းချပြီး မြေပုံများ',
     'hero.customerRating': 'ဖောက်သည်အဆင့်သတ်မှတ်ချက်',
     'hero.townshipsCovered': 'ရန်ကုန် မြို့နယ်များ ပါဝင်သည်',
     'hero.scroll': 'ဆင်းကြည့်ရန်',
-    
+
     // Bestsellers Section
     'bestsellers.label': 'အရောင်းရဆုံး',
     'bestsellers.title': 'အရောင်းရဆုံး မြေပုံများ',
     'bestsellers.subtitle': 'မြို့ပြစီမံကိန်းရေးဆွဲသူများ၊ လုပ်ငန်းရှင်များနှင့် မြေပုံဝါသနာရှင်များ နှစ်သက်သော ကျွန်ုပ်တို့၏ ထုတ်ကုန်များ။',
     'bestsellers.viewAll': 'ထုတ်ကုန်အားလုံး ကြည့်ရန်',
-    
+
     // Flagship Section
     'flagship.badge': 'အဓိက ထုတ်ကုန်',
     'flagship.specialPrice': 'အထူးစျေးနှုန်း',
@@ -266,7 +264,7 @@ viber - မှ ဆက်သွယ်ဝယ်ယူနိင်ပါသည်`,
     'flagship.indexedLocations': 'တည်နေရာ ၅၀၀၀+ ညွှန်းကိန်းပြုထားသည်',
     'flagship.verifiedData': 'အတည်ပြုထားသော ဒေတာအရင်းအမြစ်များ',
     'flagship.starRating': 'ကြယ်ပွင့် {rating} အဆင့်သတ်မှတ်ချက်',
-    
+
     // Trust Section
     'trust.title': 'DPS Map ကို ဘာကြောင့် ရွေးချယ်သင့်သလဲ?',
     'trust.subtitle': 'မြန်မာတစ်နိုင်ငံလုံးရှိ ပညာရှင်များ၊ ပညာရေးသမားများနှင့် မြေပုံဝါသနာရှင်များ ယုံကြည်စိတ်ချရစွာသုံးစွဲသောကြောင့် ',
@@ -278,11 +276,11 @@ viber - မှ ဆက်သွယ်ဝယ်ယူနိင်ပါသည်`,
     'trust.fastShippingDesc': 'ရန်ကုန်မြို့တွင်း မှာယူပါက ၃ ရက်အတွင်း ပို့ဆောင်။',
     'trust.satisfaction': 'ကျေနပ်မှု အာမခံချက်',
     'trust.satisfactionDesc': 'လုံးဝ ကျေနပ်မှုမရှိပါက ၃၀ ရက်အတွင်း ငွေပြန်အမ်းပေးသည်။',
-    
+
     // Testimonials Section
     'testimonials.label': 'သုံးသပ်ချက်များ',
     'testimonials.title': 'ကျွန်ုပ်တို့၏ ဖောက်သည်များ ဘာပြောသလဲ',
-    
+
     // CTA Section
     'cta.label': 'သတင်းအချက်အလက် ရယူပါ',
     'cta.title': 'ပထမဆုံး မြေပုံဝယ်ယူသူ အယောက် 30 အတွက် Delivery Free ( 2026 ခုနစ် ၊ ဇန်နဝါရီလ ၁၅ ရက် အထိသာ )',
@@ -293,7 +291,7 @@ viber - မှ ဆက်သွယ်ဝယ်ယူနိင်ပါသည်`,
     'cta.browseAll': 'မြေပုံအားလုံး ကြည့်ရန်',
     'cta.wallMaps': 'နံရံမြေပုံများ',
     'cta.mapBooks': 'မြေပုံစာအုပ်များ',
-    
+
     // Footer
     'footer.description': 'အရည်အသွေးမြင့် ရန်ကုန်မြေပုံများနှင့် စိတ်ကြိုက်မြေပုံပုံနှိပ်ခြင်းများအတွက် သင့်ယုံကြည်ရာ အရင်းအမြစ်။ ၂၀၁၅ ခုနှစ်မှစ၍ တိကျသော မြေပုံရေးဆွဲခြင်း။',
     'footer.shop': 'ဆိုင်',
@@ -312,12 +310,12 @@ viber - မှ ဆက်သွယ်ဝယ်ယူနိင်ပါသည်`,
     'footer.rights': 'မူပိုင်ခွင့် အားလုံးရယူထားသည်။',
     'footer.privacy': 'ကိုယ်ရေးကိုယ်တာ မူဝါဒ',
     'footer.terms': 'ဝန်ဆောင်မှု စည်းမျဉ်းများ',
-    
+
     // Product Card
     'product.sale': 'လျှော့စျေး',
     'product.featured': 'အထူးအသားပေး',
     'product.addToCart': 'ဈေးခြင်းထဲ ထည့်ရန်',
-    
+
     // Cart Drawer
     'cart.title': 'သင့်ဈေးခြင်း',
     'cart.empty': 'သင့်ဈေးခြင်း ဗလာဖြစ်နေသည်',
@@ -327,7 +325,7 @@ viber - မှ ဆက်သွယ်ဝယ်ယူနိင်ပါသည်`,
     'cart.shippingNote': 'ပို့ခကို ငွေရှင်းတဲ့အခါ တွက်ချက်ပါမည်',
     'cart.checkout': 'ငွေရှင်းရန် ဆက်သွားပါ',
     'cart.continueShopping': 'ဆက်လက် ဝယ်ယူရန်',
-    
+
     // Auth Modal
     'auth.login': 'ဝင်ရောက်ရန်',
     'auth.signup': 'စာရင်းသွင်းရန်',
@@ -341,7 +339,7 @@ viber - မှ ဆက်သွယ်ဝယ်ယူနိင်ပါသည်`,
     'auth.orContinue': 'သို့မဟုတ် ဤနည်းဖြင့် ဆက်လက်ပါ',
     'auth.google': 'Google',
     'auth.facebook': 'Facebook',
-    
+
     // Products Page
     'products.title': 'မြေပုံအားလုံး',
     'products.searchPlaceholder': 'မြေပုံများ ရှာဖွေရန်...',
@@ -354,7 +352,7 @@ viber - မှ ဆက်သွယ်ဝယ်ယူနိင်ပါသည်`,
     'products.showing': 'ထုတ်ကုန် {count} ခု ပြသနေသည်',
     'products.noProducts': 'ထုတ်ကုန် မတွေ့ပါ',
     'products.clearFilters': 'စစ်ထုတ်မှုများ ရှင်းလင်းရန်',
-    
+
     // Filter Labels
     'filter.category': 'အမျိုးအစား',
     'filter.priceRange': 'စျေးနှုန်းအပိုင်းအခြား',
@@ -362,7 +360,7 @@ viber - မှ ဆက်သွယ်ဝယ်ယူနိင်ပါသည်`,
     'filter.allCategories': 'အမျိုးအစားအားလုံး',
     'filter.apply': 'စစ်ထုတ်မှုများ အသုံးပြုရန်',
     'filter.reset': 'ပြန်လည်သတ်မှတ်ရန်',
-    
+
     // Product Detail
     'productDetail.description': 'ဖော်ပြချက်',
     'productDetail.shipping': 'ပို့ဆောင်ရေး အချက်အလက်',
@@ -374,7 +372,7 @@ viber - မှ ဆက်သွယ်ဝယ်ယူနိင်ပါသည်`,
     'productDetail.outOfStock': 'ကုန်သွားပြီ',
     'productDetail.relatedProducts': 'ဆက်စပ်ထုတ်ကုန်များ',
     'productDetail.frequentlyBought': 'မကြာခဏ အတူဝယ်ယူသော',
-    
+
     // Checkout
     'checkout.title': 'ငွေရှင်းရန်',
     'checkout.contact': 'ဆက်သွယ်ရန် အချက်အလက်',
@@ -392,7 +390,7 @@ viber - မှ ဆက်သွယ်ဝယ်ယူနိင်ပါသည်`,
     'checkout.cod': 'ပစ္စည်းရောက်မှ ငွေပေးချေခြင်း',
     'checkout.bankTransfer': 'ဘဏ်လွှဲပြောင်းခြင်း',
     'checkout.mobilePay': 'မိုဘိုင်း ငွေပေးချေခြင်း',
-    
+
     // Blog
     'blog.title': 'ဘလော့ဂ်',
     'blog.subtitle': 'မြေပုံရေးဆွဲခြင်း ကမ္ဘာမှ ထိုးထွင်းသိမြင်မှုများ၊ အချက်အလက်အသစ်များနှင့် ဇာတ်လမ်းများ',
