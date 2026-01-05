@@ -56,6 +56,9 @@ export function HeroSection({ heroImage }: HeroSectionProps) {
           <p className="mt-6 text-lg text-primary-foreground/80 max-w-xl animate-slide-up" style={{ animationDelay: '0.2s' }}>
             {t('hero.subtitle')}
           </p>
+           <p className="mt-6 text-lg text-primary-foreground/80 max-w-xl animate-slide-up" style={{ animationDelay: '0.2s' }}>
+            {t('hero.socialMarketing')}
+          </p>
 
           {/* CTA Buttons */}
           <div className="mt-8 flex flex-wrap gap-4 animate-slide-up" style={{ animationDelay: '0.3s' }}>
