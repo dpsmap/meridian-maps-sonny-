@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { ChevronRight, CreditCard, Truck, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -9,20 +9,105 @@ import { Textarea } from '@/components/ui/textarea';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { useCart } from '@/contexts/CartContext';
 import { formatPrice } from '@/lib/mockData';
+import { supabase } from '@/integrations/supabase/client';
+import { toast } from 'sonner';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Checkout() {
-  const { items, subtotal } = useCart();
+  const { items, subtotal, clearCart } = useCart();
+  const { t } = useLanguage();
+  const navigate = useNavigate();
   const [paymentMethod, setPaymentMethod] = useState('cod');
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    address: '',
+    township: '',
+    city: 'Yangon',
+  });
 
   const shipping = subtotal > 100000 ? 0 : 5000;
   const total = subtotal + shipping;
 
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  const handlePlaceOrder = async () => {
+    if (!formData.firstName || !formData.email || !formData.address) {
+      toast.error('Please fill in all required fields');
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const orderItems = items.map(item => ({
+        name: item.product.name,
+        quantity: item.quantity,
+        price: (parseInt(item.product.price) + item.priceModifier) * item.quantity,
+      }));
+
+      const customerName = `${formData.firstName} ${formData.lastName}`.trim();
+      const customerAddress = `${formData.address}, ${formData.township}, ${formData.city}`;
+
+      // Create order in database
+      const { data: order, error: orderError } = await supabase
+        .from('orders')
+        .insert({
+          customer_name: customerName,
+          customer_email: formData.email,
+          customer_phone: formData.phone || null,
+          customer_address: customerAddress,
+          items: orderItems,
+          total_amount: total,
+          status: 'pending',
+          payment_method: paymentMethod,
+        })
+        .select()
+        .single();
+
+      if (orderError) throw orderError;
+
+      // Send confirmation email
+      const { error: emailError } = await supabase.functions.invoke('send-order-email', {
+        body: {
+          customerName,
+          customerEmail: formData.email,
+          customerPhone: formData.phone || 'N/A',
+          customerAddress,
+          orderId: order.id,
+          items: orderItems,
+          totalAmount: total,
+          paymentMethod,
+        },
+      });
+
+      if (emailError) {
+        console.error('Email error:', emailError);
+        // Don't fail the order if email fails
+      }
+
+      clearCart();
+      toast.success('Order placed successfully!');
+      navigate(`/order-success?order=${order.id}`);
+    } catch (error: any) {
+      console.error('Order error:', error);
+      toast.error(error.message || 'Failed to place order');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   if (items.length === 0) {
     return (
       <div className="container py-20 text-center">
-        <h1 className="font-display text-2xl font-bold">Your cart is empty</h1>
+        <h1 className="font-display text-2xl font-bold">{t('cart.empty')}</h1>
         <Button asChild className="mt-4">
-          <Link to="/products">Continue Shopping</Link>
+          <Link to="/products">{t('cart.browseProducts')}</Link>
         </Button>
       </div>
     );
@@ -31,7 +116,7 @@ export default function Checkout() {
   return (
     <>
       <Helmet>
-        <title>Checkout - DPS Map Shop</title>
+        <title>{t('checkout.title')} - DPS Map Shop</title>
         <meta name="robots" content="noindex" />
       </Helmet>
 
@@ -40,45 +125,69 @@ export default function Checkout() {
         <div className="border-b border-border bg-secondary/30 py-4">
           <div className="container">
             <nav className="flex items-center gap-2 text-sm text-muted-foreground">
-              <Link to="/" className="hover:text-foreground">Home</Link>
+              <Link to="/" className="hover:text-foreground">{t('nav.home')}</Link>
               <ChevronRight className="h-4 w-4" />
-              <Link to="/products" className="hover:text-foreground">Shop</Link>
+              <Link to="/products" className="hover:text-foreground">{t('nav.shop')}</Link>
               <ChevronRight className="h-4 w-4" />
-              <span className="text-foreground font-medium">Checkout</span>
+              <span className="text-foreground font-medium">{t('checkout.title')}</span>
             </nav>
           </div>
         </div>
 
         <div className="container py-8 md:py-12">
-          <h1 className="font-display text-3xl font-bold mb-8">Checkout</h1>
+          <h1 className="font-display text-3xl font-bold mb-8">{t('checkout.title')}</h1>
 
           <div className="grid gap-12 lg:grid-cols-[1fr_400px]">
             {/* Form */}
-            <form className="space-y-8">
+            <div className="space-y-8">
               {/* Contact */}
               <section className="space-y-4">
                 <h2 className="font-display text-xl font-semibold flex items-center gap-2">
                   <MapPin className="h-5 w-5 text-primary" />
-                  Contact Information
+                  {t('checkout.contact')}
                 </h2>
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div className="space-y-2">
-                    <Label htmlFor="firstName">First Name</Label>
-                    <Input id="firstName" placeholder="Enter first name" />
+                    <Label htmlFor="firstName">{t('checkout.firstName')} *</Label>
+                    <Input 
+                      id="firstName" 
+                      value={formData.firstName}
+                      onChange={handleInputChange}
+                      placeholder="Enter first name" 
+                      required
+                    />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="lastName">Last Name</Label>
-                    <Input id="lastName" placeholder="Enter last name" />
+                    <Label htmlFor="lastName">{t('checkout.lastName')}</Label>
+                    <Input 
+                      id="lastName" 
+                      value={formData.lastName}
+                      onChange={handleInputChange}
+                      placeholder="Enter last name" 
+                    />
                   </div>
                 </div>
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" placeholder="you@example.com" />
+                    <Label htmlFor="email">Email *</Label>
+                    <Input 
+                      id="email" 
+                      type="email" 
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      placeholder="you@example.com" 
+                      required
+                    />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="phone">Phone</Label>
-                    <Input id="phone" type="tel" placeholder="+95 9 XXX XXX XXX" />
+                    <Label htmlFor="phone">{t('checkout.phone')}</Label>
+                    <Input 
+                      id="phone" 
+                      type="tel" 
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      placeholder="+95 9 XXX XXX XXX" 
+                    />
                   </div>
                 </div>
               </section>
@@ -87,20 +196,36 @@ export default function Checkout() {
               <section className="space-y-4">
                 <h2 className="font-display text-xl font-semibold flex items-center gap-2">
                   <Truck className="h-5 w-5 text-primary" />
-                  Shipping Address
+                  {t('checkout.shipping')}
                 </h2>
                 <div className="space-y-2">
-                  <Label htmlFor="address">Street Address</Label>
-                  <Textarea id="address" placeholder="House number, street name, ward" />
+                  <Label htmlFor="address">{t('checkout.address')} *</Label>
+                  <Textarea 
+                    id="address" 
+                    value={formData.address}
+                    onChange={handleInputChange}
+                    placeholder="House number, street name, ward" 
+                    required
+                  />
                 </div>
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div className="space-y-2">
                     <Label htmlFor="township">Township</Label>
-                    <Input id="township" placeholder="e.g., Kamayut" />
+                    <Input 
+                      id="township" 
+                      value={formData.township}
+                      onChange={handleInputChange}
+                      placeholder="e.g., Kamayut" 
+                    />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="city">City</Label>
-                    <Input id="city" placeholder="e.g., Yangon" defaultValue="Yangon" />
+                    <Label htmlFor="city">{t('checkout.city')}</Label>
+                    <Input 
+                      id="city" 
+                      value={formData.city}
+                      onChange={handleInputChange}
+                      placeholder="e.g., Yangon" 
+                    />
                   </div>
                 </div>
               </section>
@@ -109,13 +234,13 @@ export default function Checkout() {
               <section className="space-y-4">
                 <h2 className="font-display text-xl font-semibold flex items-center gap-2">
                   <CreditCard className="h-5 w-5 text-primary" />
-                  Payment Method
+                  {t('checkout.payment')}
                 </h2>
                 <RadioGroup value={paymentMethod} onValueChange={setPaymentMethod}>
                   <div className="flex items-center space-x-3 rounded-lg border border-border p-4 cursor-pointer hover:bg-secondary/50">
                     <RadioGroupItem value="cod" id="cod" />
                     <Label htmlFor="cod" className="flex-1 cursor-pointer">
-                      <span className="font-medium">Cash on Delivery</span>
+                      <span className="font-medium">{t('checkout.cod')}</span>
                       <p className="text-sm text-muted-foreground">Pay when you receive your order</p>
                     </Label>
                   </div>
@@ -135,18 +260,12 @@ export default function Checkout() {
                   </div>
                 </RadioGroup>
               </section>
-
-              {/* Order Notes */}
-              <section className="space-y-4">
-                <h2 className="font-display text-xl font-semibold">Order Notes (Optional)</h2>
-                <Textarea placeholder="Special instructions for your order..." />
-              </section>
-            </form>
+            </div>
 
             {/* Order Summary */}
             <aside className="lg:sticky lg:top-24 h-fit">
               <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
-                <h2 className="font-display text-xl font-semibold mb-6">Order Summary</h2>
+                <h2 className="font-display text-xl font-semibold mb-6">{t('checkout.orderSummary')}</h2>
 
                 {/* Items */}
                 <ul className="space-y-4 mb-6">
@@ -174,7 +293,7 @@ export default function Checkout() {
                 {/* Totals */}
                 <div className="space-y-3 border-t border-border pt-4">
                   <div className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">Subtotal</span>
+                    <span className="text-muted-foreground">{t('cart.subtotal')}</span>
                     <span>{formatPrice(subtotal)}</span>
                   </div>
                   <div className="flex justify-between text-sm">
@@ -187,8 +306,13 @@ export default function Checkout() {
                   </div>
                 </div>
 
-                <Button size="lg" className="w-full mt-6">
-                  Place Order
+                <Button 
+                  size="lg" 
+                  className="w-full mt-6" 
+                  onClick={handlePlaceOrder}
+                  disabled={loading}
+                >
+                  {loading ? 'Processing...' : t('checkout.placeOrder')}
                 </Button>
 
                 <p className="text-xs text-center text-muted-foreground mt-4">
