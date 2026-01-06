@@ -220,7 +220,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.districts': 'ခရီးမြေပုံများ',
     'nav.townships': 'မြို့နယ်မြေပုံများ',
     'nav.industrial': 'industrial',
-    'nav.maprint':'မြေပုံထုတ်မည်',
+    'nav.maprint':'မြေပုံထုတ်မည် ',
 
     //faq
     'faq.title': 'Frequently Asked Questions',
