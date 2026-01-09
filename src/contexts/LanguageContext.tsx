@@ -28,6 +28,8 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.townships': 'Townships',
     'nav.industrial': 'Industrial Areas',
     'nav.maprint': 'Map Print',
+    'nav.target': 'Strategy',
+
 
     // Header
     'header.search': 'Search',
@@ -221,6 +223,8 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.townships': 'မြို့နယ်မြေပုံများ',
     'nav.industrial': 'industrial',
     'nav.maprint':'မြေပုံထုတ်မည် ',
+    'nav.target': 'မဟာဗျူဟာ ရည်မှန်းချက်',
+
 
     //faq
     'faq.title': 'Frequently Asked Questions',

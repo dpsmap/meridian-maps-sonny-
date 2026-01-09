@@ -32,6 +32,7 @@ export function Header({ onAuthClick }: HeaderProps) {
     // { href: '/products?category=a4-book', label: t('nav.mapBooks') },
     { href: 'https://www.facebook.com/DPSMyanmar/', label: t('facebook'), target: '_blank' },
      { href: 'https://maprint.dpsmap.com/', label: t('nav.maprint'), target: '_blank' },
+     { href: 'https://myanmar.dpsmap.com/', label: t('nav.target'), target: '_blank' },
   ];
 
   const isActive = (href: string) => {
