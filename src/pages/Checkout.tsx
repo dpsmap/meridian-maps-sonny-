@@ -72,17 +72,10 @@ export default function Checkout() {
 
       if (orderError) throw orderError;
 
-      // Send confirmation email
+      // Send confirmation email - only pass orderId, edge function fetches rest from DB
       const { error: emailError } = await supabase.functions.invoke('send-order-email', {
         body: {
-          customerName,
-          customerEmail: formData.email,
-          customerPhone: formData.phone || 'N/A',
-          customerAddress,
           orderId: order.id,
-          items: orderItems,
-          totalAmount: total,
-          paymentMethod,
         },
       });
 
