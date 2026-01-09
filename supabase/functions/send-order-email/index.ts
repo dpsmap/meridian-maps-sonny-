@@ -1,5 +1,6 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { Resend } from "https://esm.sh/resend@2.0.0";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.49.1";
 
 const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 
@@ -15,30 +16,49 @@ interface OrderItem {
 }
 
 interface OrderEmailRequest {
-  customerName: string;
-  customerEmail: string;
-  customerPhone: string;
-  customerAddress: string;
   orderId: string;
-  items: OrderItem[];
-  totalAmount: number;
-  paymentMethod: string;
 }
 
 const handler = async (req: Request): Promise<Response> => {
-  console.log("send-order-email function called");
-  
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
 
   try {
-    const orderData: OrderEmailRequest = await req.json();
-    console.log("Order data received:", orderData);
+    const { orderId }: OrderEmailRequest = await req.json();
 
-    const itemsHtml = orderData.items.map(item => `
+    if (!orderId) {
+      return new Response(
+        JSON.stringify({ success: false, error: "Order ID is required" }),
+        { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } }
+      );
+    }
+
+    // Create Supabase client with service role to fetch order data
+    const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
+    const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
+    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+
+    // Fetch order from database to validate it exists and get accurate data
+    const { data: order, error: orderError } = await supabase
+      .from("orders")
+      .select("*")
+      .eq("id", orderId)
+      .single();
+
+    if (orderError || !order) {
+      return new Response(
+        JSON.stringify({ success: false, error: "Order not found" }),
+        { status: 404, headers: { "Content-Type": "application/json", ...corsHeaders } }
+      );
+    }
+
+    // Parse order items from JSONB
+    const orderItems = order.items as OrderItem[];
+
+    const itemsHtml = orderItems.map(item => `
       <tr>
-        <td style="padding: 10px; border-bottom: 1px solid #eee;">${item.name}</td>
+        <td style="padding: 10px; border-bottom: 1px solid #eee;">${escapeHtml(item.name)}</td>
         <td style="padding: 10px; border-bottom: 1px solid #eee; text-align: center;">${item.quantity}</td>
         <td style="padding: 10px; border-bottom: 1px solid #eee; text-align: right;">${item.price.toLocaleString()} MMK</td>
       </tr>
@@ -58,10 +78,10 @@ const handler = async (req: Request): Promise<Response> => {
         </div>
         
         <div style="background: #f9f9f9; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-          <h2 style="color: #1a1a1a; margin-top: 0;">Thank you for your order, ${orderData.customerName}!</h2>
+          <h2 style="color: #1a1a1a; margin-top: 0;">Thank you for your order, ${escapeHtml(order.customer_name)}!</h2>
           <p style="color: #666;">Your order has been received and is being processed.</p>
-          <p><strong>Order ID:</strong> ${orderData.orderId}</p>
-          <p><strong>Payment Method:</strong> Cash on Delivery (COD)</p>
+          <p><strong>Order ID:</strong> ${escapeHtml(order.id)}</p>
+          <p><strong>Payment Method:</strong> ${escapeHtml(order.payment_method || 'Cash on Delivery (COD)')}</p>
         </div>
 
         <h3 style="color: #1a1a1a;">Order Details</h3>
@@ -79,16 +99,16 @@ const handler = async (req: Request): Promise<Response> => {
           <tfoot>
             <tr>
               <td colspan="2" style="padding: 15px 10px; text-align: right; font-weight: bold;">Total:</td>
-              <td style="padding: 15px 10px; text-align: right; font-weight: bold; color: #22c55e;">${orderData.totalAmount.toLocaleString()} MMK</td>
+              <td style="padding: 15px 10px; text-align: right; font-weight: bold; color: #22c55e;">${Number(order.total_amount).toLocaleString()} MMK</td>
             </tr>
           </tfoot>
         </table>
 
         <h3 style="color: #1a1a1a;">Shipping Address</h3>
         <div style="background: #f9f9f9; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
-          <p style="margin: 0;"><strong>${orderData.customerName}</strong></p>
-          <p style="margin: 5px 0; color: #666;">${orderData.customerAddress}</p>
-          <p style="margin: 5px 0; color: #666;">Phone: ${orderData.customerPhone}</p>
+          <p style="margin: 0;"><strong>${escapeHtml(order.customer_name)}</strong></p>
+          <p style="margin: 5px 0; color: #666;">${escapeHtml(order.customer_address)}</p>
+          <p style="margin: 5px 0; color: #666;">Phone: ${escapeHtml(order.customer_phone || 'N/A')}</p>
         </div>
 
         <div style="text-align: center; padding: 20px; border-top: 1px solid #eee;">
@@ -103,28 +123,35 @@ const handler = async (req: Request): Promise<Response> => {
       </html>
     `;
 
-    console.log("Sending email to:", orderData.customerEmail);
-
     const emailResponse = await resend.emails.send({
       from: "DPS Map Shop <onboarding@resend.dev>",
-      to: [orderData.customerEmail],
-      subject: `Order Confirmation - ${orderData.orderId}`,
+      to: [order.customer_email],
+      subject: `Order Confirmation - ${order.id}`,
       html: emailHtml,
     });
-
-    console.log("Email sent successfully:", emailResponse);
 
     return new Response(JSON.stringify({ success: true, data: emailResponse }), {
       status: 200,
       headers: { "Content-Type": "application/json", ...corsHeaders },
     });
   } catch (error: any) {
-    console.error("Error in send-order-email function:", error);
+    console.error("Error in send-order-email function:", error.message);
     return new Response(
-      JSON.stringify({ success: false, error: error.message }),
+      JSON.stringify({ success: false, error: "Failed to send email" }),
       { status: 500, headers: { "Content-Type": "application/json", ...corsHeaders } }
     );
   }
 };
+
+// Helper function to escape HTML to prevent XSS
+function escapeHtml(text: string): string {
+  if (!text) return '';
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
 
 serve(handler);
