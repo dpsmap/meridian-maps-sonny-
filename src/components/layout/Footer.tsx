@@ -131,6 +131,10 @@ export function Footer() {
                 <Globe className="h-5 w-5" />
               </a>
             </div>
+            {/* <h1>hello</h1> */}
+            <br />
+            
+            
           </div>
         </div>
 

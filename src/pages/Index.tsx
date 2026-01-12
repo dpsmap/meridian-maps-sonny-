@@ -22,26 +22,7 @@ interface IndexProps {
 
 export default function Index({ heroImage }: IndexProps) {
   
-  // StatCounter Code Injection
-  useEffect(() => {
-    // StatCounter Configuration
-    window.sc_project = 310175;
-    window.sc_invisible = 0;
-    window.sc_security = "df515d3d";
 
-    // Create Script Element
-    const script = document.createElement('script');
-    script.src = "https://www.statcounter.com/counter/counter.js";
-    script.async = true;
-
-    // Append to body
-    document.body.appendChild(script);
-
-    // Cleanup when component unmounts
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
 
   return (
     <>

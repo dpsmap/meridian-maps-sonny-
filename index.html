@@ -25,6 +25,16 @@
  
   <body>
     <div id="root"></div>
+    <!-- <div id="loading-message" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; z-index: 1000;"> -->
+      <h4 id="loading-message">Please wait a moment (or) <a href="/">refresh</a></h4>
+    <!-- </div> -->
+      <br><br><br>
+    <script>
+      window.addEventListener('load', function() {
+        document.getElementById('loading-message').style.display = 'none';
+      });
+    </script>
+   
      <script type="text/javascript">
       var sc_project = 310175;
       var sc_invisible = 0;

@@ -30,9 +30,9 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.industrial': 'Industrial Areas',
     'nav.maprint': 'Map Print',
     'nav.target': 'Strategy',
-    'nav.address': 'Address',
-    'nav.businessList': 'Business List',
-    'nav.quasar': 'Quasar',
+    'nav.address': 'Address Search',
+    'nav.businessList': 'Poi Search',
+    // 'nav.quasar': 'Quasar',
     'nav.1sqft': '1sqft',
 
 
@@ -229,9 +229,9 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.industrial': 'industrial',
     'nav.maprint':'မြေပုံထုတ်မည် ',
     'nav.target': 'မဟာဗျူဟာ ရည်မှန်းချက်',
-    'nav.address':'လိပ်စာများ',
-    'nav.businessList':'လုပ်ငန်းစာရင်း',
-    'nav.quasar':'android မိုဘိုင်းအက်ပ်',
+    'nav.address': 'Address Search',
+    'nav.businessList': 'Poi Search',
+    // 'nav.quasar':'android မိုဘိုင်းအက်ပ်',
     'nav.1sqft':'1sqft',
 
 
