@@ -15,7 +15,8 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.shop': 'Shop Maps',
     'nav.wallMaps': 'Wall Maps',
     'nav.mapBooks': 'Map Books',
-    'nav.map': 'Maps',
+    'nav.map': 'Services',
+    // 'nav.menu': 'Menu',
     'nav.blog': 'Blog',
     'nav.yangonMap': 'Yangon Map',
     'nav.myanmarMap': 'Myanmar Map',
@@ -29,6 +30,10 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.industrial': 'Industrial Areas',
     'nav.maprint': 'Map Print',
     'nav.target': 'Strategy',
+    'nav.address': 'Address',
+    'nav.businessList': 'Business List',
+    'nav.quasar': 'Quasar',
+    'nav.1sqft': '1sqft',
 
 
     // Header
@@ -211,7 +216,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.wallMaps': 'နံရံမြေပုံများ',
     'nav.mapBooks': 'မြေပုံစာအုပ်များ',
     'nav.blog': 'ဘလော့ဂ်',
-    'nav.map': 'မြေပုံများ',
+    'nav.map': '၀န်ဆောင်မှုများ',
     'nav.yangonMap': 'ရန်ကုန်မြေပုံများ',
     'nav.myanmarMap': 'မြန်မာပြည်မြေပုံများ',
     'nav.mandalayMap': 'မန္တလေးမြေပုံများ',
@@ -224,6 +229,10 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.industrial': 'industrial',
     'nav.maprint':'မြေပုံထုတ်မည် ',
     'nav.target': 'မဟာဗျူဟာ ရည်မှန်းချက်',
+    'nav.address':'လိပ်စာများ',
+    'nav.businessList':'လုပ်ငန်းစာရင်း',
+    'nav.quasar':'android မိုဘိုင်းအက်ပ်',
+    'nav.1sqft':'1sqft',
 
 
     //faq

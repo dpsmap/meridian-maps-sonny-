@@ -113,8 +113,15 @@ export function Header({ onAuthClick }: HeaderProps) {
           <nav className="hidden items-center gap-1 lg:flex">
             {navLinks.map(link => (
               link.href === '/maps' ? (
-                <div key={link.href} className="relative" ref={dropdownRef}>
-                  {/* <button
+                <div
+                  key={link.href}
+                  className="relative"
+                  ref={dropdownRef}
+                  onMouseEnter={() => setIsMapsDropdownOpen(true)}
+                  onMouseLeave={() => setIsMapsDropdownOpen(false)}
+                >
+                  <button
+                    type="button"
                     onClick={() => setIsMapsDropdownOpen(!isMapsDropdownOpen)}
                     className={cn(
                       "flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors hover:text-primary",
@@ -125,13 +132,40 @@ export function Header({ onAuthClick }: HeaderProps) {
                   >
                     {link.label}
                     <ChevronDown className={`h-4 w-4 transition-transform ${isMapsDropdownOpen ? 'rotate-180' : ''}`} />
-                  </button> */}
+                  </button>
                   {isMapsDropdownOpen && (
                     <div 
                       className="absolute left-0 mt-1 w-48  border bg-popover p-2 shadow-lg z-50"
-                      onMouseLeave={() => setIsMapsDropdownOpen(false)}
                     >
                       <Link target="_blank"
+                        to="https://address.dpsmap.com/"
+                        className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
+                        onClick={() => setIsMapsDropdownOpen(false)}
+                      >
+                        {t('nav.address')}
+                      </Link>
+                      <Link target="_blank"
+                        to="https://dpsmap.com/businesslist/"
+                        className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
+                        onClick={() => setIsMapsDropdownOpen(false)}
+                      >
+                        {t('nav.businessList')}
+                      </Link>
+                       <Link target="_blank"
+                        to="https://quasarloginwithsupabase.netlify.app/"
+                        className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
+                        onClick={() => setIsMapsDropdownOpen(false)}
+                      >
+                        {t('nav.quasar')}
+                      </Link>
+                        <Link target="_blank"
+                        to="https://dpsmap.com/1sqft/"
+                        className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
+                        onClick={() => setIsMapsDropdownOpen(false)}
+                      >
+                        {t('nav.1sqft')}
+                      </Link>
+                      {/* <Link target="_blank"
                         to="https://dpsmap.com/yangon/"
                         className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
                         onClick={() => setIsMapsDropdownOpen(false)}
@@ -144,7 +178,7 @@ export function Header({ onAuthClick }: HeaderProps) {
                         onClick={() => setIsMapsDropdownOpen(false)}
                       >
                         {t('nav.home')}
-                      </Link>
+                      </Link> */}
                       {/* <Link target="_blank"
                         to="https://dpsmap.com/pages/map-download/"
                         className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
@@ -152,7 +186,7 @@ export function Header({ onAuthClick }: HeaderProps) {
                       >
                         {t('nav.freeMapDownload')}
                       </Link> */}
-                      <Link target="_blank"
+                      {/* <Link target="_blank"
                         to="https://dpsmap.com/mandalay/"
                         className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
                         onClick={() => setIsMapsDropdownOpen(false)}
@@ -200,7 +234,7 @@ export function Header({ onAuthClick }: HeaderProps) {
                         onClick={() => setIsMapsDropdownOpen(false)}
                       >
                         {t('nav.industrial')}
-                      </Link>
+                      </Link> */}
                       {/* <Link target="_blank"
                         to="https://dpsmap.com/onlinemapshop/"
                         className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
