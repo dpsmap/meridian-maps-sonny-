@@ -298,7 +298,8 @@ const translations: Record<Language, Record<string, string>> = {
 
     // CTA Section
     'cta.label': 'သတင်းအချက်အလက် ရယူပါ',
-    'cta.title': 'ပထမဆုံး မြေပုံဝယ်ယူသူ အယောက် 30 အတွက် Delivery Free ( 2026 ခုနစ် ၊ ဇန်နဝါရီလ ၁၅ ရက် အထိသာ )',
+    // 'cta.title': 'ပထမဆုံး မြေပုံဝယ်ယူသူ အယောက် 30 အတွက် Delivery Free ( 2026 ခုနစ် ၊ ဇန်နဝါရီလ ၁၅ ရက် အထိသာ )',
+    'cta.title': 'Since 1995, DPS Map has led Myanmar’s mapping and GIS services, supporting organizations like UNESCO, TomTom, and local governments.',
     'cta.subtitle': 'သီးသန့်အစီအစဉ်များ၊ ထုတ်ကုန်အသစ်ကြေညာချက်များနှင့် မြေပုံရေးဆွဲခြင်း ထိုးထွင်းသိမြင်မှုများအတွက် သတင်းလွှာ စာရင်းသွင်းပါ။',
     'cta.placeholder': 'သင့်အီးမေးလ်ထည့်ပါ',
     'cta.button': 'စာရင်းသွင်းရန်',
