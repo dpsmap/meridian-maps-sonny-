@@ -9,6 +9,7 @@ import { Autoplay, EffectFade } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import yangonImage from '@/assets/yangon.jpg';
+import yangonRegImage from '@/assets/yangon region.jpg';
 import mandalayImage from '@/assets/mandalay.jpg';
 import myanmarImage from '@/assets/myanmar.jpg';
 import heroMapImage from '@/assets/hero-map.jpg';
@@ -23,11 +24,45 @@ export function HeroSection({ heroImage }: HeroSectionProps) {
   const [activeSlide, setActiveSlide] = useState(0);
   const swiperRef = useRef<SwiperInstance | null>(null);
   const heroSlides = [
-    { src: heroImage, title: 'Yangon City Map', description: 'Downtown grid with riverfront landmarks.',price:'10000' },
-    { src: heroMapImage, title: 'Metro Detail', description: 'Transit-ready layout for fast navigation.',price:'10000' },
-    { src: yangonImage, title: 'Yangon Region', description: 'Townships and arterial routes highlighted.',price:'10000' },
-    { src: mandalayImage, title: 'Mandalay Map', description: 'Cultural districts and key corridors.',price:'10000' },
-    { src: myanmarImage, title: 'Myanmar Overview', description: 'National perspective across major regions.',price:'10000' },
+    {
+      src: yangonImage,
+      title: 'Yangon City Map',
+      description: 'ရန်ကုန်မြို့ စည်ပင်သာယာနယ်နိမိတ် ၃၃ မြို့နယ်အပါအဝင် လမ်းအမည်၊ အမှတ်စဉ်များ ပါဝင်သည်။',
+      details: [
+        'Vinyl (4\' x 6\') - ၃၁၂,၀၀၀ ကျပ်',
+        'Vinyl (8\' x 4\') - ၁၅၆,၀၀၀ ကျပ်',
+        'Soft Copy PDF - ၃၀၀,၀၀၀ ကျပ် (Discount - ၂၅၀,၀၀၀ ကျပ်)',
+        'JPG - ၁၅၀,၀၀၀ ကျပ် (Discount - ၇၅,၀၀၀ ကျပ်)'
+      ]
+    },
+     {
+      src: myanmarImage,
+      title: 'Myanmar Map',
+      description: 'မြန်မာနိုင်ငံမြေပုံ (Myanmar Version & English Version နှစ်မျိုးရှိသည်)',
+      details: [
+        'Vinyl (2\' x 4\') - ၁၀၄,၀၀၀ ကျပ်',
+        'Vinyl (3\' x 6\') - ၂၃၄,၀၀၀ ကျပ်',
+        'Soft Copy - PDF / JPG'
+      ]
+    },
+    {
+      src: yangonRegImage,
+      title: 'Yangon Region',
+      description: 'ရန်ကုန်တိုင်းဒေသကြီး',
+      details: [
+        'Vinyl (2\' x 3\') - ၇၈,၀၀၀ ကျပ်'
+      ]
+    },
+    {
+      src: mandalayImage,
+      title: 'Mandalay Map',
+      description: 'မန္တလေးမြို့အတွင်းရှိ မြို့နယ်များ၊ လမ်းအမည်၊ ဘတ်စ်ကားဂိတ် နှင့် မြို့ပတ်ရထားလမ်းစိတ် အချက်အလက်များ ပါဝင်သည်။',
+      details: [
+        'Vinyl (4\' x 6\') - ၃၁၂,၀၀၀ ကျပ်',
+        'Soft Copy PDF - (စျေးနှုန်းမဖော်ပြထားပါ)'
+      ]
+    },
+   
   ];
 
   return (
@@ -55,6 +90,31 @@ export function HeroSection({ heroImage }: HeroSectionProps) {
               <MapPin className="h-4 w-4 text-terracotta-light" />
               <span className="text-sm font-medium text-primary-foreground">{t('hero.badge')}</span>
             </div>
+               {/* Headline */}
+      {/* <h1 className="font-display text-4xl font-bold leading-tight text-primary-foreground sm:text-5xl md:text-6xl animate-slide-up" style={{ animationDelay: '0.1s' }}>
+        <div className="flex flex-wrap items-center gap-2">
+          <Link 
+            className="animate-bounce inline-block hover:text-terracotta-light transition-colors" 
+            to="https://dpsmap.com/yangon" 
+            target="_blank"
+          >
+            {t('hero.ygn')}
+          </Link>
+          <span className="mx-1">နှင့်</span>
+          <Link 
+            className="animate-bounce inline-block hover:text-terracotta-light transition-colors" 
+            to="https://dpsmap.com/myanmar" 
+            style={{lineHeight:"10px"}}
+            target="_blank"
+          >
+            {t('hero.mm')}
+          </Link>
+          <span>{t('hero.title')}</span>
+        </div>
+       
+      </h1>
+      <br />
+      <br /> */}
             <div className="relative w-full max-w-none aspect-[16/10] max-h-[48vh] overflow-hidden border border-primary-foreground/20 shadow-2xl sm:mx-auto sm:max-w-[560px] sm:aspect-[4/3] sm:max-h-none lg:mx-0">
                 <Swiper
                   modules={[Autoplay, EffectFade]}
@@ -75,7 +135,11 @@ export function HeroSection({ heroImage }: HeroSectionProps) {
                         <div className="absolute inset-x-0 bottom-0 bg-black/60 px-4 pb-3 pt-6 sm:px-6 sm:pb-5 sm:pt-10">
                           <p className="text-sm font-semibold text-white sm:text-lg">{slide.title}</p>
                           <p className="mt-1 text-[11px] text-white/80 sm:text-sm">{slide.description}</p>
-                          <p className="mt-1 text-[11px] text-white/80 sm:text-sm">Ks {slide.price}</p>
+                          <div className="mt-1 space-y-1">
+                            {slide.details.map((detail, i) => (
+                              <p key={i} className="text-[11px] text-white/80 sm:text-sm">{detail}</p>
+                            ))}
+                          </div>
                         </div>
                       </div>
                     </SwiperSlide>
@@ -186,7 +250,7 @@ export function HeroSection({ heroImage }: HeroSectionProps) {
                       </div>
                       <div className="mt-2 text-xs text-primary-foreground/60">{slide.description}</div>
                       <div className="mt-3 text-sm font-semibold text-primary-foreground/90">
-                        Ks {slide.price}
+                         {slide.details}
                       </div>
                     </button>
                   ))}

@@ -249,7 +249,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Hero Section
     'hero.badge': '၁၉၉၅ ခုနှစ်မှစ၍ တိကျသော မြေပုံရေးဆွဲခြင်း',
-    'hero.title': 'မြေပုံများ အထူးဈေးနှုန်း  ',
+    'hero.title': 'မြေပုံများ  ',
     'hero.mm': 'နှင့် မြန်မာပြည်',
     'hero.ygn': 'ရန်ကုန်   ',
     'hero.titleHighlight': '( 50% လျော့ဈေး ) ဖြင့် ရယူလိုက်ပါ ( 2026 Jan 15 အထိသာ)',
