@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -167,6 +167,9 @@ export function HeroSection({ heroImage }: HeroSectionProps) {
             <p className="mt-6 text-base text-primary-foreground/80 sm:text-lg max-w-xl animate-slide-up" style={{ animationDelay: '0.2s' }}>
               {t('hero.subtitle')}
             </p>
+            <a href="http://"></a>
+            <a href="http://"></a>
+           
             <div>
               <p className="mt-6 text-base text-primary-foreground/80 sm:text-lg max-w-xl animate-slide-up" style={{ animationDelay: '0.2s' }}>
                 {t('hero.socialMarketing')}
@@ -185,6 +188,12 @@ export function HeroSection({ heroImage }: HeroSectionProps) {
                 <a href="https://www.facebook.com/DPSMyanmar" target="_blank" style={{ textShadow: '1px 1px black' }}>
                   https://www.facebook.com/DPSMyanmar
                 </a>
+                <br />
+                <span style={{textDecoration:'underline'}}>Address</span> -{' '}
+                <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x30c1ec87aa67d8a3:0xfc0601241550cd7c?source=g.page.share" target="_blank" style={{ textShadow: '1px 1px black' }}>
+                  Rm:307, Yae Kyaw Complex, Yae Kyaw Road,
+Pazundaung Township, Yangon, Myanmar (Burma)
+                </a>
               </p>
             </div>
 
@@ -199,6 +208,11 @@ export function HeroSection({ heroImage }: HeroSectionProps) {
               <Button size="xl" variant="heroOutline" asChild className="w-full sm:w-auto">
                 <Link to="https://shop.dpsmap.com/" target="_blank">
                   {t('hero.viewCollection')}
+                </Link>
+              </Button>
+              <Button size="xl" variant="heroOutline" asChild className="w-full sm:w-auto">
+                <Link to="https://dpsmap.com/pages/map-download/" target="_blank">
+                  Free Download Maps
                 </Link>
               </Button>
             </div>
