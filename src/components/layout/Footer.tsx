@@ -124,7 +124,7 @@ export function Footer() {
                     />
                 </a>
                 <a 
-                    href="assets/dpsmap_app.apk" 
+                    href="https://drive.google.com/file/d/1FRItkkt22j2jSeD-l0fLkqTh_SazTeer/view?usp=sharing" 
                     download
                     className="flex flex-col items-center gap-2 p-3 rounded-lg bg-gray-800 hover:bg-primary transition-colors text-gray-400 hover:text-white group"
                     title="Download Android App"
