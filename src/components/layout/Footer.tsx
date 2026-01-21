@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
-import { MapPin, Mail, Phone, Facebook, Globe, Printer } from 'lucide-react';
+import { MapPin, Mail, Phone, Facebook, Globe, Printer, Download } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import androidImage from '@/assets/image.png';
+
 
 export function Footer() {
   const { t } = useLanguage();
@@ -113,13 +115,27 @@ export function Footer() {
             </p>
 
             {/* QR Code Section */}
-            <div className="mt-6">
+            <div className="mt-6 flex items-center gap-4">
                 <a href="https://dpsmap.com/">
                     <img 
                         src="https://dpsmap.com/assets/images/OfficalDPS QR.png" 
                         alt="DPS Official QR" 
                         className="w-32 h-32 rounded-lg bg-white p-1"
                     />
+                </a>
+                <a 
+                    href="assets/dpsmap_app.apk" 
+                    download
+                    className="flex flex-col items-center gap-2 p-3 rounded-lg bg-gray-800 hover:bg-primary transition-colors text-gray-400 hover:text-white group"
+                    title="Download Android App"
+                >
+                    <img 
+                        src={androidImage} 
+                        alt="Android App" 
+                        className="h-12 w-12"
+                    />
+                    <span className="text-xs text-center">Android App</span>
+                    <Download className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </a>
             </div>
 
