@@ -9,6 +9,7 @@ declare global {
     sc_security: string;
   }
 }
+import { AvailableMapSection } from '@/components/home/AvailableMapSection';
 import { BestsellersSection } from '@/components/home/BestsellersSection';
 import { FlagshipSection } from '@/components/home/FlagshipSection';
 import { TrustSection } from '@/components/home/TrustSection';
@@ -38,6 +39,7 @@ export default function Index({ heroImage }: IndexProps) {
 
       <main>
         <HeroSection heroImage={heroImage} />
+        <AvailableMapSection />
         <BestsellersSection />
         <FlagshipSection />
         <TrustSection />

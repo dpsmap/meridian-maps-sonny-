@@ -83,13 +83,23 @@ export function HeroSection({ heroImage }: HeroSectionProps) {
 
       {/* Content */}
       <div className="container relative z-10">
+        {/* Full Width Announcement Badge (Above Everything) */}
+        <div className="mb-8 w-full  border-primary-foreground/20 bg-primary-foreground/10 px-4 py-3 sm:py-4 backdrop-blur-sm animate-fade-in flex flex-col sm:flex-row items-center gap-2 sm:gap-3 justify-center text-center">
+          {/* <MapPin className="h-5 w-5 text-terracotta-light shrink-0" /> */}
+          <h1 className="text-base sm:text-lg md:text-2xl font-semibold text-primary-foreground leading-relaxed drop-shadow-md" style={{ textShadow: '1px 1px 1px rgba(0,0,0,0.8)' }}>
+            မြန်မာပြည် မြေပုံ နှင့် ပြည်နယ်တိုင်းဒေသကြီး မြေပုံများအား <span className="text-terracotta-light drop-shadow-md" style={{ textShadow: '1px 1px 1px rgba(0,0,0,0.8)' }}>ဈေးနှုန်းချိုသာစွာဖြင့်</span> ဝယ်ယူနိင်ပါသည်
+          </h1>
+        </div>
+        <br />
+        <div className="mb-6 px-4 py-3 rounded-full inline-flex items-center gap-2 border border-primary-foreground/30 bg-primary-foreground/10 backdrop-blur-sm animate-fade-in shadow-lg">
+              <MapPin className="h-5 w-5 text-terracotta-light shrink-0" />
+              <span className="text-sm sm:text-base font-semibold text-primary-foreground leading-relaxed">
+                ၁၉၉၅ ခုနှစ်မှစ၍ တိကျသော မြေပုံရေးဆွဲခြင်
+              </span>
+            </div>
+
         <div className="grid items-start gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
           <div className="mx-auto w-full max-w-3xl px-2 sm:px-0 lg:mx-0">
-            {/* Badge */}
-            <div className="mb-6 px-2 inline-flex items-center gap-2 rounded-full border border-primary-foreground/20 bg-primary-foreground/10 py-2 backdrop-blur-sm animate-fade-in">
-              <MapPin className="h-4 w-4 text-terracotta-light" />
-              <span className="text-sm font-medium text-primary-foreground">{t('hero.badge')}</span>
-            </div>
                {/* Headline */}
       {/* <h1 className="font-display text-4xl font-bold leading-tight text-primary-foreground sm:text-5xl md:text-6xl animate-slide-up" style={{ animationDelay: '0.1s' }}>
         <div className="flex flex-wrap items-center gap-2">
