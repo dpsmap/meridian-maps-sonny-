@@ -12,10 +12,12 @@ import { formatPrice } from '@/lib/mockData';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useAuth } from '@/contexts/AuthContext';
 
 export default function Checkout() {
   const { items, subtotal, clearCart } = useCart();
   const { t } = useLanguage();
+  const { user } = useAuth();
   const navigate = useNavigate();
   const [paymentMethod, setPaymentMethod] = useState('cod');
   const [loading, setLoading] = useState(false);
@@ -58,6 +60,7 @@ export default function Checkout() {
       const { data: order, error: orderError } = await supabase
         .from('orders')
         .insert({
+          user_id: user?.id || null,
           customer_name: customerName,
           customer_email: formData.email,
           customer_phone: formData.phone || null,
