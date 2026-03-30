@@ -17,6 +17,7 @@ import { useAuth } from '@/contexts/AuthContext';
 export default function Checkout() {
   const { items, subtotal, clearCart } = useCart();
   const { t } = useLanguage();
+  const { user } = useAuth();
   const navigate = useNavigate();
   const [paymentMethod, setPaymentMethod] = useState('cod');
   const [loading, setLoading] = useState(false);
