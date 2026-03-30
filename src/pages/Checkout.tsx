@@ -60,6 +60,7 @@ export default function Checkout() {
       const { data: order, error: orderError } = await supabase
         .from('orders')
         .insert({
+          user_id: user?.id || null,
           customer_name: customerName,
           customer_email: formData.email,
           customer_phone: formData.phone || null,
