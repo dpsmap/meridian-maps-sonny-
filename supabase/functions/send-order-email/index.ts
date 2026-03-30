@@ -4,10 +4,25 @@ import { createClient } from "https://esm.sh/@supabase/supabase-js@2.49.1";
 
 const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
-};
+const ALLOWED_ORIGINS = [
+  'https://dpsmap1.lovable.app',
+  'https://www.dpsmap.com',
+  'https://dpsmap.com',
+  'http://localhost:5173',
+  'http://localhost:3000',
+];
+
+function getCorsHeaders(origin: string) {
+  if (ALLOWED_ORIGINS.some(o => origin === o || origin.endsWith('.lovable.app'))) {
+    return {
+      'Access-Control-Allow-Origin': origin,
+      'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version',
+      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Max-Age': '86400',
+    };
+  }
+  return {};
+}
 
 interface OrderItem {
   name: string;
@@ -19,9 +34,37 @@ interface OrderEmailRequest {
   orderId: string;
 }
 
+// Simple rate limiting per order ID
+const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
+
+function checkRateLimit(orderId: string): boolean {
+  const now = Date.now();
+  const limit = rateLimitMap.get(orderId);
+  if (!limit || now > limit.resetTime) {
+    rateLimitMap.set(orderId, { count: 1, resetTime: now + 60000 });
+    return true;
+  }
+  if (limit.count >= 3) return false;
+  limit.count++;
+  return true;
+}
+
 const handler = async (req: Request): Promise<Response> => {
+  const origin = req.headers.get('origin') || '';
+  const corsHeaders = getCorsHeaders(origin);
+
   if (req.method === "OPTIONS") {
+    if (Object.keys(corsHeaders).length === 0) {
+      return new Response(null, { status: 403 });
+    }
     return new Response(null, { headers: corsHeaders });
+  }
+
+  if (Object.keys(corsHeaders).length === 0) {
+    return new Response(
+      JSON.stringify({ error: 'Unauthorized origin' }),
+      { status: 403, headers: { 'Content-Type': 'application/json' } }
+    );
   }
 
   try {
@@ -31,6 +74,13 @@ const handler = async (req: Request): Promise<Response> => {
       return new Response(
         JSON.stringify({ success: false, error: "Order ID is required" }),
         { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } }
+      );
+    }
+
+    if (!checkRateLimit(orderId)) {
+      return new Response(
+        JSON.stringify({ success: false, error: "Rate limit exceeded" }),
+        { status: 429, headers: { "Content-Type": "application/json", ...corsHeaders } }
       );
     }
 
