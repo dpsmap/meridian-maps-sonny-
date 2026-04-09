@@ -6,9 +6,9 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import type { Swiper as SwiperInstance } from 'swiper';
 import { Autoplay, EffectFade } from 'swiper/modules';
-// @ts-ignore
+
 import 'swiper/css';
-// @ts-ignore
+
 import 'swiper/css/effect-fade';
 import yangonImage from '@/assets/yangon.jpg';
 import yangonRegImage from '@/assets/yangon region.jpg';
