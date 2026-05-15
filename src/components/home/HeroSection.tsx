@@ -31,10 +31,10 @@ export function HeroSection({ heroImage }: HeroSectionProps) {
       title: 'Yangon City Map',
       description: 'ရန်ကုန်မြို့ စည်ပင်သာယာနယ်နိမိတ် ၃၃ မြို့နယ်အပါအဝင် လမ်းအမည်၊ အမှတ်စဉ်များ ပါဝင်သည်။',
       details: [
-        'Vinyl (4\' x 6\') - ၃၁၂,၀၀၀ ကျပ်',
-        'Vinyl (8\' x 4\') - ၁၅၆,၀၀၀ ကျပ်',
-        'Soft Copy PDF - ၃၀၀,၀၀၀ ကျပ် (Discount - ၂၅၀,၀၀၀ ကျပ်)',
-        'JPG - ၁၅၀,၀၀၀ ကျပ် (Discount - ၇၅,၀၀၀ ကျပ်)'
+        'Vinyl (4\' x 6\') - ၃၆၀,၀၀၀ ကျပ်',
+        'Vinyl (8\' x 4\') - ၄၈၀,၀၀၀ ကျပ်',
+        'Soft Copy PDF - ၃၅၀,၀၀၀ ကျပ် (Discount - ၃၀၀,၀၀၀ ကျပ်)',
+        'JPG - ၁၅၀,၀၀၀ ကျပ် '
       ]
     },
      {
@@ -42,8 +42,8 @@ export function HeroSection({ heroImage }: HeroSectionProps) {
       title: 'Myanmar Map',
       description: 'မြန်မာနိုင်ငံမြေပုံ (Myanmar Version & English Version နှစ်မျိုးရှိသည်)',
       details: [
-        'Vinyl (2\' x 4\') - ၁၀၄,၀၀၀ ကျပ်',
-        'Vinyl (3\' x 6\') - ၂၃၄,၀၀၀ ကျပ်',
+        'Vinyl (2\' x 4\') - ၁၂၀,၀၀၀ ကျပ်',
+        'Vinyl (3\' x 6\') - ၂၇၀,၀၀၀ ကျပ်',
         'Soft Copy - PDF / JPG'
       ]
     },
@@ -52,7 +52,7 @@ export function HeroSection({ heroImage }: HeroSectionProps) {
       title: 'Yangon Region',
       description: 'ရန်ကုန်တိုင်းဒေသကြီး',
       details: [
-        'Vinyl (2\' x 3\') - ၇၈,၀၀၀ ကျပ်'
+        'Vinyl (2\' x 3\') - ၉၀,၀၀၀ ကျပ်'
       ]
     },
     {
@@ -60,7 +60,7 @@ export function HeroSection({ heroImage }: HeroSectionProps) {
       title: 'Mandalay Map',
       description: 'မန္တလေးမြို့အတွင်းရှိ မြို့နယ်များ၊ လမ်းအမည်၊ ဘတ်စ်ကားဂိတ် နှင့် မြို့ပတ်ရထားလမ်းစိတ် အချက်အလက်များ ပါဝင်သည်။',
       details: [
-        'Vinyl (4\' x 6\') - ၃၁၂,၀၀၀ ကျပ်',
+        'Vinyl (4\' x 6\') - ၃၆၀,၀၀၀ ကျပ်',
         'Soft Copy PDF - (စျေးနှုန်းမဖော်ပြထားပါ)'
       ]
     },
